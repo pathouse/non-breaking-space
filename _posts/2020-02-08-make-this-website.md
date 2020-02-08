@@ -1,9 +1,6 @@
 ---
 layout: post
 title: 'Make this website'
-image: ''
-comments: false
-categories:
 summary: 'Learn how this website was made.'
 ---
 
@@ -38,7 +35,15 @@ git commit -am 'Start new jekyll site'
     + remove twitter_username
     + remove [minima theme](https://github.com/jekyll/minima)
     + add [jekyll-seo-tag](https://github.com/jekyll/jekyll-seo-tag) to plugins
-    + add `gem jekyll-seo-tag` to `Gemfile` within `group :jekyll_plugins`
+
+1. Update the `Gemfile` to include `jekyll-seo-tag`
+```ruby
+group :jekyll_plugins do
+  ...
+  gem 'jekyll-seo-tag', '2.6.1'
+end
+```
+
 1. Copy all of the assets from the starter theme plugin (minima) into our project.
 See [Overriding theme defaults](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)
 In the terminal:
@@ -64,6 +69,37 @@ cp -r $(bundle show minima)/assets
 ```bash
 git add -A
 git commit -am 'Copy and customize Minima theme'
+```
+
+# Changing Syntax Highlighting
+
+Jekyll uses [Rouge](https://github.com/rouge-ruby/rouge) to do syntax highlight on blocks of code in Markdown.
+I am going to use the Thankful Eyes theme.
+
+In terminal:
+```bash
+gem install rouge
+```
+
+In ruby console (irb)
+```ruby
+File.open('_scss/minima/_syntax-highlighting.scss', 'wb') do |f| 
+  f << Rouge::Themes::ThankfulEyes.render(scope: '.highlight') 
+end
+```
+
+I like this for blocks of code but it's too strong to apply the exact same styles to inline blocks.
+Instead I am going to translate the background color to rgba and set the alpha value to something less than 1 so that there's enough
+of a difference to catch the eye but not too much to make it a jarring transition from the white-backgrounded text that will be right next to it.
+
+In `_scss/minima/_base.scss`
+```scss
+pre, 
+code {
+  &.language-plaintext {
+    background-color: rgba(22, 52, 71, 0.03);
+  }
+}
 ```
 
 # Changing Fonts
@@ -161,25 +197,22 @@ In `Gemfile`
 
 Then run `bundle update`
 
-Build the site
-```bash
-jekyll build
-```
+Build the site into the output folder used by Github Pages
 
-Change the directory the build site is in for use with Github Pages
 ```bash
-mv _site docs
+jekyll build -d docs
 ```
 
 Commit all changes
+
 ```bash
 git add -A
 git commit -am 'Deploying with Github Pages'
 ```
 
 Push your changes to github
+
 ```bash
 git push origin master
 ```
-
 In in the Github Repo go to settings, scroll down to Github pages - select `master branch /docs folder` as the source for your site
