@@ -14,7 +14,7 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $serif-font-family;
   color: $text-color;
   background-color: $background-color;
   -webkit-text-size-adjust: 100%;
@@ -94,6 +94,7 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
+  font-family: $sans-serif-font-family;
   font-weight: $base-font-weight;
 }
 
@@ -103,6 +104,7 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
+  font-family: $sans-serif-font-family;
   color: $brand-color;
   text-decoration: none;
 
