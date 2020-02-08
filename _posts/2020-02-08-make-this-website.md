@@ -38,6 +38,7 @@ git commit -am 'Start new jekyll site'
     + remove twitter_username
     + remove [minima theme](https://github.com/jekyll/minima)
     + add [jekyll-seo-tag](https://github.com/jekyll/jekyll-seo-tag) to plugins
+    + add `gem jekyll-seo-tag` to `Gemfile` within `group :jekyll_plugins`
 1. Copy all of the assets from the starter theme plugin (minima) into our project.
 See [Overriding theme defaults](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)
 In the terminal:
@@ -139,3 +140,46 @@ Once I am done writing I commit the post to git.
 git commit -A
 git commit -am 'First draft of first post'
 ```
+
+# Publishing the Website
+
+Using [Github Pages](https://pages.github.com/)
+
+Project site
+Start from scratch
+
+Create a repository
+Copy the git URL
+Set the repo as a remote
+```bash
+git remote add origin git@github.com:pathouse/non-breaking-space.git
+```
+
+In `Gemfile`
+1. Remove lines for `gem "jekyll"` and `gem "minima"`
+1. Inside `group :jekyll_plugins` add `gem "github-pages"`
+
+Then run `bundle update`
+
+Build the site
+```bash
+jekyll build
+```
+
+Change the directory the build site is in for use with Github Pages
+```bash
+mv _site docs
+```
+
+Commit all changes
+```bash
+git add -A
+git commit -am 'Deploying with Github Pages'
+```
+
+Push your changes to github
+```bash
+git push origin master
+```
+
+In in the Github Repo go to settings, scroll down to Github pages - select `master branch /docs folder` as the source for your site

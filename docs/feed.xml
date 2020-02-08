@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://www.nonbreakingspace.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.nonbreakingspace.dev/" rel="alternate" type="text/html" /><updated>2020-02-08T13:20:55-05:00</updated><id>https://www.nonbreakingspace.dev/feed.xml</id><title type="html">&amp;amp;NBSP;</title><subtitle>Videos and guides for beginner to intermediate programmers.</subtitle><entry><title type="html">Make this website</title><link href="https://www.nonbreakingspace.dev/2020/02/08/make-this-website.html" rel="alternate" type="text/html" title="Make this website" /><published>2020-02-08T00:00:00-05:00</published><updated>2020-02-08T00:00:00-05:00</updated><id>https://www.nonbreakingspace.dev/2020/02/08/make-this-website</id><content type="html" xml:base="https://www.nonbreakingspace.dev/2020/02/08/make-this-website.html">&lt;h1 id=&quot;what-makes-a-website&quot;&gt;What Makes a Website&lt;/h1&gt;
+
+&lt;p&gt;HTML + CSS&lt;/p&gt;
+
+&lt;h1 id=&quot;why-use-a-static-site-generator&quot;&gt;Why Use a Static Site Generator?&lt;/h1&gt;
+
+&lt;p&gt;Remove a lot of the tedium of doing the same thing over an over by hand.
+Use a lot of starter code that someone else has written for us so we can focus on the website content right away and slowly adjust the 
+styles and whatnot over time.&lt;/p&gt;
+
+&lt;h1 id=&quot;what-static-site-generator-are-we-using&quot;&gt;What Static Site Generator are We Using?&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This site is going to talk a lot about the &lt;a href=&quot;https://www.ruby-lang.org/en/&quot;&gt;Ruby&lt;/a&gt; programming language
+so it is only fitting that our static site generator is written in Ruby.&lt;/p&gt;
+
+&lt;h1 id=&quot;initial-setup&quot;&gt;Initial Setup&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Follow the installation instructions on the Jekyll site.&lt;/li&gt;
+  &lt;li&gt;Initialize &lt;a href=&quot;https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control&quot;&gt;git&lt;/a&gt; repository
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git init
+git add &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt;
+git commit &lt;span class=&quot;nt&quot;&gt;-am&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Start new jekyll site'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Update the _config.yml file with info about the site.
+    &lt;ul&gt;
+      &lt;li&gt;title, email, description, url, github_username&lt;/li&gt;
+      &lt;li&gt;remove twitter_username&lt;/li&gt;
+      &lt;li&gt;remove &lt;a href=&quot;https://github.com/jekyll/minima&quot;&gt;minima theme&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;add &lt;a href=&quot;https://github.com/jekyll/jekyll-seo-tag&quot;&gt;jekyll-seo-tag&lt;/a&gt; to plugins&lt;/li&gt;
+      &lt;li&gt;add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem jekyll-seo-tag&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; within &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;group :jekyll_plugins&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Copy all of the assets from the starter theme plugin (minima) into our project.
+See &lt;a href=&quot;https://jekyllrb.com/docs/themes/#overriding-theme-defaults&quot;&gt;Overriding theme defaults&lt;/a&gt;
+In the terminal:
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cp&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;bundle show minima&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;/_layouts
+&lt;span class=&quot;nb&quot;&gt;cp&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;bundle show minima&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;/_includes
+&lt;span class=&quot;nb&quot;&gt;cp&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;bundle show minima&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;/_sass
+&lt;span class=&quot;nb&quot;&gt;cp&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;bundle show minima&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;/assets
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Start updating theme defaults
+    &lt;ol&gt;
+      &lt;li&gt;I’m not going to use Google Analytics
+        &lt;ul&gt;
+          &lt;li&gt;remove lines 8-10 in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/head.html&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rm _includes/google-analytics.html&lt;/code&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;I’m not going to use Disqus Comments
+        &lt;ul&gt;
+          &lt;li&gt;Remove lines 33-35 in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts/post.html&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rm _includes/disqus_comments.html&lt;/code&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;The only Social features I am going to use are Github and Youtube
+        &lt;ul&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rm _includes/icon-twitter.html _includes/icon-twitter.svg&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;Remove all of the lines that aren’t about Github, Youtue, or RSS in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/social.html&lt;/code&gt;&lt;/li&gt;
+          &lt;li&gt;Ditto for all svg icons in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assets/minima-social-icons.svg&lt;/code&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Make sure none of our changes broke anything by running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt; and visiting the site on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localhost:4000&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Commit changes to git
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt;
+git commit &lt;span class=&quot;nt&quot;&gt;-am&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Copy and customize Minima theme'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;changing-fonts&quot;&gt;Changing Fonts&lt;/h1&gt;
+
+&lt;p&gt;I like sans-serif fonts for headers but I prefer serif for body copy.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;In &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_sass/minima.scss&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;delete &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$base-font-family&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$sans-serif-font-family: sans-serif;&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$serif-font-family: serif;&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;In &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_sass/minima/_base.scss&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;change &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$base-font-family&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$serif-font-family&lt;/code&gt; in the rules for body&lt;/li&gt;
+      &lt;li&gt;add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;font-family: $sans-serif-font-family&lt;/code&gt; to the rules for headings and anchors&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;bash-command-to-start-posts&quot;&gt;Bash command to start posts&lt;/h1&gt;
+
+&lt;p&gt;Writing posts with the correct file name and YAML frontmatter is a bit tedious so I created a shell script to do that for me.&lt;/p&gt;
+
+&lt;p&gt;I use &lt;a href=&quot;http://zsh.sourceforge.net/&quot;&gt;zsh&lt;/a&gt; and &lt;a href=&quot;https://github.com/ohmyzsh/ohmyzsh&quot;&gt;Oh My Zsh&lt;/a&gt; so to add this function I…&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Navigate to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.oh-my-zsh/custom&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Create a new file called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-blog.zsh&lt;/code&gt; and open it in my editor&lt;/li&gt;
+  &lt;li&gt;Write a function called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new_post&lt;/code&gt; that will take two arugments - title and summary of the post I plan to write.
+    &lt;ol&gt;
+      &lt;li&gt;It should use the title to generate a file name that will be the slug like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2020-02-08-my-title.md&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;It should add the title and the summary to the YAML frontmatter of the file&lt;/li&gt;
+      &lt;li&gt;It should then open the file in my editor&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;new_post&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/NonBreakingSpace/blog/_posts
+  &lt;span class=&quot;nv&quot;&gt;SLUGIFIED&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'s/[^[:alnum:]]/-/g'&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;tr&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'-'&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;tr &lt;/span&gt;A-Z a-z&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;SLUG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt; +&lt;span class=&quot;s2&quot;&gt;&quot;%Y-%m-%d&quot;&lt;/span&gt;-&lt;span class=&quot;nv&quot;&gt;$SLUGIFIED&lt;/span&gt;.md&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;front_matter&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt; &amp;gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$SLUG&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
+---
+layout: post
+title: '&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;'
+summary: '&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$2&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;'
+---
+
+### Words Go Here
+&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;front_matter
+
+&lt;/span&gt;  emacsclient &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;learn-about-the-bash-commands-used-in-this-function&quot;&gt;Learn about the Bash commands used in this function:&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man echo&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man sed&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man tr&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man date&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man cat&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man&lt;/code&gt; is the command to pull up the manual pages for another commands, but you can also use it to learn about itself.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man man&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;using-the-function&quot;&gt;Using the function&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;new_post &lt;span class=&quot;s2&quot;&gt;&quot;Make this Website&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Learn how this website was made.&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;writing-the-post&quot;&gt;Writing the Post&lt;/h1&gt;
+
+&lt;p&gt;Post contents are written in &lt;a href=&quot;https://www.markdownguide.org/getting-started/&quot;&gt;Markdown&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;With &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt; running while I write the post I can see the page refresh on my site and keep an eye on the results to make sure I am formatting my markdown correctly.&lt;/p&gt;
+
+&lt;p&gt;Once I am done writing I commit the post to git.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git commit &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt;
+git commit &lt;span class=&quot;nt&quot;&gt;-am&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'First draft of first post'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;publishing-the-website&quot;&gt;Publishing the Website&lt;/h1&gt;
+
+&lt;p&gt;Using &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Project site
+Start from scratch&lt;/p&gt;
+
+&lt;p&gt;Create a repository
+Copy the git URL
+Set the repo as a remote&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git remote add origin git@github.com:pathouse/non-breaking-space.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Remove lines for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem &quot;jekyll&quot;&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem &quot;minima&quot;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Inside &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;group :jekyll_plugins&lt;/code&gt; add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem &quot;github-pages&quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Then run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle update&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Build the site&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll build
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Change the directory the build site is in for use with Github Pages&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mv &lt;/span&gt;_site docs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Commit all changes&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt;
+git commit &lt;span class=&quot;nt&quot;&gt;-am&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Deploying with Github Pages'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Push your changes to github&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In in the Github Repo go to settings, scroll down to Github pages - select &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;master branch /docs folder&lt;/code&gt; as the source for your site&lt;/p&gt;</content><author><name></name></author><summary type="html">What Makes a Website</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.nonbreakingspace.dev/" /><media:content medium="image" url="https://www.nonbreakingspace.dev/" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Make this website | &amp;NBSP;</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Make this website" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="What Makes a Website" />
+<meta property="og:description" content="What Makes a Website" />
+<link rel="canonical" href="https://www.nonbreakingspace.dev/2020/02/08/make-this-website.html" />
+<meta property="og:url" content="https://www.nonbreakingspace.dev/2020/02/08/make-this-website.html" />
+<meta property="og:site_name" content="&amp;NBSP;" />
+<meta property="og:image" content="https://www.nonbreakingspace.dev/" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-02-08T00:00:00-05:00" />
+<script type="application/ld+json">
+{"image":"https://www.nonbreakingspace.dev/","url":"https://www.nonbreakingspace.dev/2020/02/08/make-this-website.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.nonbreakingspace.dev/2020/02/08/make-this-website.html"},"headline":"Make this website","dateModified":"2020-02-08T00:00:00-05:00","datePublished":"2020-02-08T00:00:00-05:00","description":"What Makes a Website","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://www.nonbreakingspace.dev/feed.xml" title="&NBSP;" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">&amp;NBSP;</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Make this website</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-02-08T00:00:00-05:00" itemprop="datePublished">Feb 8, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="what-makes-a-website">What Makes a Website</h1>
+
+<p>HTML + CSS</p>
+
+<h1 id="why-use-a-static-site-generator">Why Use a Static Site Generator?</h1>
+
+<p>Remove a lot of the tedium of doing the same thing over an over by hand.
+Use a lot of starter code that someone else has written for us so we can focus on the website content right away and slowly adjust the 
+styles and whatnot over time.</p>
+
+<h1 id="what-static-site-generator-are-we-using">What Static Site Generator are We Using?</h1>
+
+<p><a href="https://jekyllrb.com/">Jekyll</a></p>
+
+<p>This site is going to talk a lot about the <a href="https://www.ruby-lang.org/en/">Ruby</a> programming language
+so it is only fitting that our static site generator is written in Ruby.</p>
+
+<h1 id="initial-setup">Initial Setup</h1>
+
+<ol>
+  <li>Follow the installation instructions on the Jekyll site.</li>
+  <li>Initialize <a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control">git</a> repository
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
+git add <span class="nt">-A</span>
+git commit <span class="nt">-am</span> <span class="s1">'Start new jekyll site'</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Update the _config.yml file with info about the site.
+    <ul>
+      <li>title, email, description, url, github_username</li>
+      <li>remove twitter_username</li>
+      <li>remove <a href="https://github.com/jekyll/minima">minima theme</a></li>
+      <li>add <a href="https://github.com/jekyll/jekyll-seo-tag">jekyll-seo-tag</a> to plugins</li>
+      <li>add <code class="language-plaintext highlighter-rouge">gem jekyll-seo-tag</code> to <code class="language-plaintext highlighter-rouge">Gemfile</code> within <code class="language-plaintext highlighter-rouge">group :jekyll_plugins</code></li>
+    </ul>
+  </li>
+  <li>Copy all of the assets from the starter theme plugin (minima) into our project.
+See <a href="https://jekyllrb.com/docs/themes/#overriding-theme-defaults">Overriding theme defaults</a>
+In the terminal:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span> <span class="nt">-r</span> <span class="si">$(</span>bundle show minima<span class="si">)</span>/_layouts
+<span class="nb">cp</span> <span class="nt">-r</span> <span class="si">$(</span>bundle show minima<span class="si">)</span>/_includes
+<span class="nb">cp</span> <span class="nt">-r</span> <span class="si">$(</span>bundle show minima<span class="si">)</span>/_sass
+<span class="nb">cp</span> <span class="nt">-r</span> <span class="si">$(</span>bundle show minima<span class="si">)</span>/assets
+</code></pre></div>    </div>
+  </li>
+  <li>Start updating theme defaults
+    <ol>
+      <li>I’m not going to use Google Analytics
+        <ul>
+          <li>remove lines 8-10 in <code class="language-plaintext highlighter-rouge">_includes/head.html</code></li>
+          <li><code class="language-plaintext highlighter-rouge">rm _includes/google-analytics.html</code></li>
+        </ul>
+      </li>
+      <li>I’m not going to use Disqus Comments
+        <ul>
+          <li>Remove lines 33-35 in <code class="language-plaintext highlighter-rouge">_layouts/post.html</code></li>
+          <li><code class="language-plaintext highlighter-rouge">rm _includes/disqus_comments.html</code></li>
+        </ul>
+      </li>
+      <li>The only Social features I am going to use are Github and Youtube
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">rm _includes/icon-twitter.html _includes/icon-twitter.svg</code></li>
+          <li>Remove all of the lines that aren’t about Github, Youtue, or RSS in <code class="language-plaintext highlighter-rouge">_includes/social.html</code></li>
+          <li>Ditto for all svg icons in <code class="language-plaintext highlighter-rouge">assets/minima-social-icons.svg</code></li>
+        </ul>
+      </li>
+    </ol>
+  </li>
+  <li>Make sure none of our changes broke anything by running <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code> and visiting the site on <code class="language-plaintext highlighter-rouge">localhost:4000</code></li>
+  <li>Commit changes to git
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nt">-A</span>
+git commit <span class="nt">-am</span> <span class="s1">'Copy and customize Minima theme'</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h1 id="changing-fonts">Changing Fonts</h1>
+
+<p>I like sans-serif fonts for headers but I prefer serif for body copy.</p>
+
+<ol>
+  <li>In <code class="language-plaintext highlighter-rouge">_sass/minima.scss</code>
+    <ul>
+      <li>delete <code class="language-plaintext highlighter-rouge">$base-font-family</code></li>
+      <li>add <code class="language-plaintext highlighter-rouge">$sans-serif-font-family: sans-serif;</code></li>
+      <li>add <code class="language-plaintext highlighter-rouge">$serif-font-family: serif;</code></li>
+    </ul>
+  </li>
+  <li>In <code class="language-plaintext highlighter-rouge">_sass/minima/_base.scss</code>
+    <ul>
+      <li>change <code class="language-plaintext highlighter-rouge">$base-font-family</code> to <code class="language-plaintext highlighter-rouge">$serif-font-family</code> in the rules for body</li>
+      <li>add <code class="language-plaintext highlighter-rouge">font-family: $sans-serif-font-family</code> to the rules for headings and anchors</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="bash-command-to-start-posts">Bash command to start posts</h1>
+
+<p>Writing posts with the correct file name and YAML frontmatter is a bit tedious so I created a shell script to do that for me.</p>
+
+<p>I use <a href="http://zsh.sourceforge.net/">zsh</a> and <a href="https://github.com/ohmyzsh/ohmyzsh">Oh My Zsh</a> so to add this function I…</p>
+
+<ol>
+  <li>Navigate to <code class="language-plaintext highlighter-rouge">~/.oh-my-zsh/custom</code></li>
+  <li>Create a new file called <code class="language-plaintext highlighter-rouge">jekyll-blog.zsh</code> and open it in my editor</li>
+  <li>Write a function called <code class="language-plaintext highlighter-rouge">new_post</code> that will take two arugments - title and summary of the post I plan to write.
+    <ol>
+      <li>It should use the title to generate a file name that will be the slug like <code class="language-plaintext highlighter-rouge">2020-02-08-my-title.md</code></li>
+      <li>It should add the title and the summary to the YAML frontmatter of the file</li>
+      <li>It should then open the file in my editor</li>
+    </ol>
+  </li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>new_post<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">cd</span> ~/NonBreakingSpace/blog/_posts
+  <span class="nv">SLUGIFIED</span><span class="o">=</span><span class="s2">"</span><span class="si">$(</span><span class="nb">echo</span> <span class="nt">-n</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> | <span class="nb">sed</span> <span class="nt">-e</span> <span class="s1">'s/[^[:alnum:]]/-/g'</span> | <span class="nb">tr</span> <span class="nt">-s</span> <span class="s1">'-'</span> | <span class="nb">tr </span>A-Z a-z<span class="si">)</span><span class="s2">"</span>
+  <span class="nv">SLUG</span><span class="o">=</span><span class="si">$(</span><span class="nb">date</span> +<span class="s2">"%Y-%m-%d"</span>-<span class="nv">$SLUGIFIED</span>.md<span class="si">)</span>
+  <span class="nb">cat</span> <span class="o">&lt;&lt;</span><span class="no">front_matter</span><span class="sh"> &gt; </span><span class="nv">$SLUG</span><span class="sh">
+---
+layout: post
+title: '</span><span class="nv">$1</span><span class="sh">'
+summary: '</span><span class="nv">$2</span><span class="sh">'
+---
+
+### Words Go Here
+</span><span class="no">front_matter
+
+</span>  emacsclient <span class="nt">-t</span> <span class="nb">.</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="learn-about-the-bash-commands-used-in-this-function">Learn about the Bash commands used in this function:</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">man echo</code></li>
+  <li><code class="language-plaintext highlighter-rouge">man sed</code></li>
+  <li><code class="language-plaintext highlighter-rouge">man tr</code></li>
+  <li><code class="language-plaintext highlighter-rouge">man date</code></li>
+  <li><code class="language-plaintext highlighter-rouge">man cat</code></li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">man</code> is the command to pull up the manual pages for another commands, but you can also use it to learn about itself.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">man man</code></li>
+</ul>
+
+<h2 id="using-the-function">Using the function</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>new_post <span class="s2">"Make this Website"</span> <span class="s2">"Learn how this website was made."</span>
+</code></pre></div></div>
+
+<h1 id="writing-the-post">Writing the Post</h1>
+
+<p>Post contents are written in <a href="https://www.markdownguide.org/getting-started/">Markdown</a></p>
+
+<p>With <code class="language-plaintext highlighter-rouge">bundle exec jekyll serve</code> running while I write the post I can see the page refresh on my site and keep an eye on the results to make sure I am formatting my markdown correctly.</p>
+
+<p>Once I am done writing I commit the post to git.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-A</span>
+git commit <span class="nt">-am</span> <span class="s1">'First draft of first post'</span>
+</code></pre></div></div>
+
+<h1 id="publishing-the-website">Publishing the Website</h1>
+
+<p>Using <a href="https://pages.github.com/">Github Pages</a></p>
+
+<p>Project site
+Start from scratch</p>
+
+<p>Create a repository
+Copy the git URL
+Set the repo as a remote</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin git@github.com:pathouse/non-breaking-space.git
+</code></pre></div></div>
+
+<p>In <code class="language-plaintext highlighter-rouge">Gemfile</code></p>
+<ol>
+  <li>Remove lines for <code class="language-plaintext highlighter-rouge">gem "jekyll"</code> and <code class="language-plaintext highlighter-rouge">gem "minima"</code></li>
+  <li>Inside <code class="language-plaintext highlighter-rouge">group :jekyll_plugins</code> add <code class="language-plaintext highlighter-rouge">gem "github-pages"</code></li>
+</ol>
+
+<p>Then run <code class="language-plaintext highlighter-rouge">bundle update</code></p>
+
+<p>Build the site</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jekyll build
+</code></pre></div></div>
+
+<p>Change the directory the build site is in for use with Github Pages</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mv </span>_site docs
+</code></pre></div></div>
+
+<p>Commit all changes</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add <span class="nt">-A</span>
+git commit <span class="nt">-am</span> <span class="s1">'Deploying with Github Pages'</span>
+</code></pre></div></div>
+
+<p>Push your changes to github</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin master
+</code></pre></div></div>
+
+<p>In in the Github Repo go to settings, scroll down to Github pages - select <code class="language-plaintext highlighter-rouge">master branch /docs folder</code> as the source for your site</p>
+
+  </div>
+
+  <a class="u-url" href="/2020/02/08/make-this-website.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">&amp;NBSP;</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">&amp;NBSP;</li><li><a class="u-email" href="mailto:pat@nonbreakingspace.dev">pat@nonbreakingspace.dev</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/pathouse"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">pathouse</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Videos and guides for beginner to intermediate programmers.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
