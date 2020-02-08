@@ -122,21 +122,27 @@ I use [zsh](http://zsh.sourceforge.net/) and [Oh My Zsh](https://github.com/ohmy
 
 1. Navigate to `~/.oh-my-zsh/custom`
 1. Create a new file called `jekyll-blog.zsh` and open it in my editor
-1. Write a function called `new_post` that will take two arugments - title and summary of the post I plan to write.
-    1. It should use the title to generate a file name that will be the slug like `2020-02-08-my-title.md`
-    1. It should add the title and the summary to the YAML frontmatter of the file
-    1. It should then open the file in my editor
+1. Write a function called `new_post` that will take three arugments
+    1. The directory where the post should go
+    2. The title of the post
+    3. A short summary of what the post is about
+
+This function should...
+    1. use the title to generate a file name that will be the slug like `2020-02-08-my-title.md`
+    1. add the title and the summary to the YAML frontmatter of the file
+    1. write the file in the directoy specified
+    1. open my text editor ([Emacs](https://www.gnu.org/software/emacs/)) in the directory where I created the file
   
 ```bash
 function new_post() {
-  cd ~/NonBreakingSpace/blog/_posts
-  SLUGIFIED="$(echo -n "$1" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)"
+  cd ~/$1
+  SLUGIFIED="$(echo -n "$2" | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)"
   SLUG=$(date +"%Y-%m-%d"-$SLUGIFIED.md)
   cat <<front_matter > $SLUG
 ---
 layout: post
-title: '$1'
-summary: '$2'
+title: '$2'
+summary: '$3'
 ---
 
 ### Words Go Here
@@ -161,7 +167,7 @@ front_matter
 ## Using the function
 
 ```bash
-new_post "Make this Website" "Learn how this website was made."
+new_post ~/NonBreakingSpace/blog/_posts/ "Make this Website" "Learn how this website was made."
 ```
 
 # Writing the Post
