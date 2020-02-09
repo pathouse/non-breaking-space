@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>AoC - 2015 - Day 1 | Pairing with Pat</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="AoC - 2015 - Day 1" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Setup" />
+<meta property="og:description" content="The Setup" />
+<link rel="canonical" href="https://www.pairingwithpat.com/aoc/2020/02/08/aoc-2015-day-1.html" />
+<meta property="og:url" content="https://www.pairingwithpat.com/aoc/2020/02/08/aoc-2015-day-1.html" />
+<meta property="og:site_name" content="Pairing with Pat" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-02-08T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://www.pairingwithpat.com/aoc/2020/02/08/aoc-2015-day-1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.pairingwithpat.com/aoc/2020/02/08/aoc-2015-day-1.html"},"headline":"AoC - 2015 - Day 1","dateModified":"2020-02-08T00:00:00-05:00","datePublished":"2020-02-08T00:00:00-05:00","description":"The Setup","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://www.pairingwithpat.com/feed.xml" title="Pairing with Pat" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Pairing with Pat</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/advent-of-code/">Advent of Code</a><a class="page-link" href="/tools/">Tools</a><a class="page-link" href="/walkthroughs/">Walkthroughs</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">AoC - 2015 - Day 1</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-02-08T00:00:00-05:00" itemprop="datePublished">Feb 8, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="the-setup">The Setup</h1>
+
+<h3 id="problem-description">Problem Description</h3>
+<p>Santa is trying to deliver presents in a large apartment building, but he can’t find the right floor - the directions he got are a little confusing. 
+He starts on the ground floor (floor <code class="language-plaintext highlighter-rouge">0</code>) and then follows the instructions one character at a time.</p>
+
+<p>An opening parenthesis, <code class="language-plaintext highlighter-rouge">(</code>, means he should go up one floor, and a closing parenthesis, <code class="language-plaintext highlighter-rouge">)</code>, means he should go down one floor.</p>
+
+<p>The apartment building is very tall, and the basement is very deep; he will never find the top or bottom floors.</p>
+
+<h3 id="examples-of-input">Examples of Input</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">(())</code> and <code class="language-plaintext highlighter-rouge">()()</code> both result in floor <code class="language-plaintext highlighter-rouge">0</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">(((</code> and <code class="language-plaintext highlighter-rouge">(()(()(</code> both result in floor <code class="language-plaintext highlighter-rouge">3</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">))(((((</code> also results in floor <code class="language-plaintext highlighter-rouge">3</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">())</code> and <code class="language-plaintext highlighter-rouge">))(</code> both result in floor <code class="language-plaintext highlighter-rouge">-1</code> (the first basement level).</li>
+  <li><code class="language-plaintext highlighter-rouge">)))</code> and <code class="language-plaintext highlighter-rouge">)())())</code> both result in floor <code class="language-plaintext highlighter-rouge">-3</code>.</li>
+</ul>
+
+<h3 id="question-to-answer">Question to Answer</h3>
+
+<p>To what floor do the instructions take Santa?</p>
+
+<h1 id="puzzle-input">Puzzle Input</h1>
+
+<p>If you are following along and have created an account on AoC, you will receive your own puzzle input, but here is mine:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>()(((()))(()()()((((()(((())(()(()((((((()(()(((())))((()(((()))((())(()((()()()()(((())(((((((())))()()(()(()(())(((((()()()((())(((((()()))))()(())(((())(())((((((())())))(()())))()))))()())()())((()()((()()()()(()((((((((()()())((()()(((((()(((())((())(()))()((((()((((((((())()((()())(())((()))())((((()())(((((((((((()()(((((()(()))())(((()(()))())((()(()())())())(()(((())(())())()()(()(()((()))((()))))((((()(((()))))((((()(()(()())())()(((()((((())((((()(((()()(())()()()())((()((((((()((()()))()((()))()(()()((())))(((()(((()))((()((()(()))(((()()(()(()()()))))()()(((()(((())())))))((()(((())()(()(())((()())))((((())))(()(()(()())()((()())))(((()((()(())()()((()((())(()()((())(())()))()))((()(())()))())(((((((()(()()(()(())())))))))(()((((((())((((())((())())(()()))))()(())(()())()())((())(()))))(()))(()((()))()(()((((((()()()()((((((((()(()(())((()()(()()))(())()())()((())))()))()())(((()))(())()(())()))()((()((()(()()())(())()()()((())())))((()()(()()((()(())()()())(((()(()()))))(())))(()(()())()))()()))))))()))))((((((())))())))(()(())())(()())))))(()))()))))))()((()))))()))))(()(()((()())())(()()))))(((())()))())())())(((()(()()))(())()(())(())((((((()()))))((()(()))))))(()))())(((()()(()))()())()()()())))))))))))))(())(()))(()))((()(())(()())(())())(()())(())()()(()())))()()()))(())())()))())())(())((())))))))(())))(())))))()))))((())(()(((()))))(()))()((()(())))(()())(((((()))()())()()))))()))))()))())(()(()()()))()))))))((()))))))))))()((()))((()(())((())()()(()()))()(()))))()()(()))()))(((())))(())()((())(())(()())()())())))))))())))()((())))()))(()))()()))(((((((()))())(()()))(()()(()))()(()((()())()))))))(((()()()())))(())()))()())(()()))()()))))))))(())))()))()()))))))()))()())))()(())(())))))()(())()()(()()))))())((()))))()))))(()(((((()))))))))())))())()(())()()))))(())))())()()())()()())()(()))))()))()))))))))())))((()))()))()))())))()())()()())))())))(()((())()((()))())))))())()(())((())))))))))))())()())(())())())(()))(()))()))())(()(())())()())()()(()))))(()(())))))))(())))())(())))))))())()()(())())())))(())))))()))()(()())()(()))())())))))()()(()))()))))())))))))))()))))()))))))())()())()()))))()())))())))))))))))()()))))()()(((()))()()(())()))))((()))))(()))(())())))(())()))))))(()))()))))(())())))))()))(()())))))))))))))())))))))))()((()())(()())))))))((()))))(())(())))()(()())())))())())(()()()())))()))))))())))))())()()())))))))))))()()(()))))()())()))((()())(()))))()(()))))))))))()())())(((())(()))))())()))()))()))))))()))))))(()))))()))))()(())))(())))(()))())()()(()()))()))(()()))))))))()))(()))())(()()(()(()())()()))()))))))))(())))))((()()(()))())())))))()))())(()())()()))())))()(()()()()))((())())))())()(()()))()))))))))(()))(())))()))))(()(()())(()))))()())())()))()()))())))))))))))())()))))))()))))))))())))))()))))())(()())))(())()))())())))))()()(()()())(()())))()()))(((()))(()()()))))()))))()))))((())))()((((((()()))))))())))))))))))(((()))))))))))))(())())))))())(()))))))(()))((()))())))()(()((()))()))()))))))))))())()))()(()()))))())))())(())()(()))()))())(()))()))))(()()))()()(())))))()))(())(()(()()))(()()())))))(((()))))))()))))))))))))(())(()))))()())())()()((()()))())))))(()))))())))))))()()()))))))))())))()(((()()))(())))))(((())())))))((()))()(()))(()))))(()())))(()))())))))()))))(())(())))()((()))(())())))()()))()))))))))()))(()()()(()()()(()))())(())()())(((()))(())))))))))(((()())))()()))))))))()(())(()))()((((())(())(()())))()))(((())()()()))((()))(()))())())))())))(()))())()())())(()(())())()()()(())))())(())))(())))(())()))()))(()((()))))))))())(()))))))())(()()))()()))()(()(()())))()()(()((()((((((()))(())))()()()))())()))((()()(()))())((()(()(()))(()()))))()())))()))()())))))))()()((()())(())))()))(()))(())(()))())(()(())))()()))))))(((()(((()()))()(()(())())((()()))()))()))()))()(()()()(()))((()())()(())))()()))(((())()()())(())()((()()()()(()(())(()()))()(((((()())))((())))))(()()()))))(((()(())))()))((()((()(())()(()((())))((()())()(()))(((()())()()(()))(())(((()((()())()((())()())(((()()))((()((())(()))(()())(()()()))((()))(())(()((()()())((()))(())))(())(())(())))(()())))(((((()(()(((((()())((((()(()())(())(()()(((())((()(((()()(((()()((((((())))())(()((((((()(()))()))()()((()((()))))()(()()(()((()()))))))(((((()(((((())()()()(())())))))))()))((()()(())))(())(()()()())))))(()((((())))))))()()(((()(()(()(()(()())()()()(((((((((()()())()(()))((()()()()()(((((((()())()((())()))((((((()(()(()(()())(((()(((((((()(((())(((((((((())(())())()))((()(()))(((()()())(())(()(()()(((()(())()))())))(())((((((())(()()())()()(((()(((())(()(((())(((((((()(((((((((()))(())(()(()(()))))((()))()(())())())((()(()((()()))((()()((()(())(())(()((())(((())(((()()()((((((()()(())((((())()))))(())((()(()((())))(((((()(()()())())((())())))((())((()((()()((((((())(((()()(()())())(()(()))(()(()))())())()(((((((()(((()(())()()((())((()(()()((()(()()(((((((((((())((())((((((())((()((((()(()((((()(((((((())()((()))))())()((()((((()(()(((()((()())))(())())(((()(((())((((((()(((((((((()()(())))(()(((((()((((()())))((()((()((()(()()(((())((((((((((((()(((())(()(((((()))(()()(()()()()()()((())(((((((())(((((())))))())()(()()(()(()(((()()(((((())(()((()((()(((()()((()((((())()))()((((())(())))()())(((())(())(()()((()(((()()((((((((((()()(()())())(((((((((())((((()))()()((((())(()((((()(((())())(((((((((((()((((())))(())(()(((()(((()((())(((((()((()()(()(()()((((((()((((()((()(()((()(()((((((()))))()()(((((()((()(()(())()))(())(((((((()((((()())(()((()((()(()))())))(())((()))))(((((((()()()())(()))(()()((()())()((()((()()()(()(()()))(()())(())(((((()(((((((((((()((()(((()(((((((()()((((((()(((((()(()((()(((((())((((((()))((((())((()()((())(((())()(((((()()(((((()((()(()(((((((()(((((()((()((()((())(())((())(()))()()))(()()(()(()()(((((((()(((()(((())()(((((()((((((()())((((())()((()((()(()()())(()))((((()()((((((()((()(()(()((((()((()((())((((((()(()(())((((((()((((((((((()((())()))()(()(()(((((()()()))((())))()(()((((((((((((((()(((()((((()((())((()((()(((()()(()(((()((())(()()())))()(()(()(((((()()(()(()((((()(((((())()(()(()))(((((()()(((()()(())((((((((((((((())((())(((((((((((())()()()(())()(()(()(((((((((())(((()))(()()())(()((((()(())(((((()())(())((((((((())()((((()((((((())(()((()(())(((()((((()))(((((((((()()))((((()(())()()()(())(()((())((()()))()(((())(((((())((((((()()))(((((((((()((((((())))(((((((()((()(()(())))())(()(()))()(((((()())(()))()(()(())(((()))))())()())))(((((()))())()((()(()))))((()()()((((((()))()()((((((((())((()(()(((()(()((())((()())(()((((())(()(((()()()(()(()()))())())((((((((((())())((()))()((())(())(())))())()(()()(())))())(()))(((()(()()(((()(((())))()(((()(())()((((((())()))()))()((((((()(()(((((()())))()))))())()()(((()(((((())((()()(()((()((()(()(()(())))(()()()()((()(())(((()((()))((((()))())(())))())(()))()()()())()))(((()()())()((())))(())(()()()()(()())((()(()()((((())))((()((()(())((()(()((())()(()()(((()())()()())((()))((())(((()()(())))()()))(((()((())()(((((()())(())((())()())())((((((()(()(((((()))(()(
+</code></pre></div></div>
+
+<h1 id="getting-started---simple-approach">Getting Started - Simple Approach</h1>
+
+<p>I don’t know for sure, but my hypothesis about what’s happening here is that Santa’s elves have lost their minds.
+Over the years as the world’s human population has grown to billions of people, Santa’s elves have had to work harder
+and harder each year to produce presents for everyone, and they’ve finally reached their breaking point.</p>
+
+<p>So instead of taking appropriate measures to provide mental healthcare to his elves, Santa has hired us to untangle the directions
+they have produced for him in their maddened state.</p>
+
+<p>We will see what we can do.</p>
+
+<h2 id="translating-the-problem-into-code">Translating the problem into code</h2>
+
+<p>The first step when trying to solve any kind of problem with code is determining which data structures in the code we will use to represent
+various things.</p>
+
+<p>In this case it looks like we will at the very least need to deal with 
+<a href="http://ruby-for-beginners.rubymonstas.org/built_in_classes/numbers.html" target="_blank">Numbers</a>
+and <a href="http://ruby-for-beginners.rubymonstas.org/built_in_classes/strings.html" target="_blank">Strings</a>.</p>
+
+<p>The floors will be represented as a number:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">floor</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div></div>
+
+<p>Moving up a floor can be represented by addition:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">floor</span> <span class="o">=</span> <span class="n">floor</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>Moving down a floor can be represented by subtraction:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">floor</span> <span class="o">=</span> <span class="n">floor</span> <span class="o">-</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>And the directions will be represented as strings:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">directions</span> <span class="o">=</span> <span class="s2">"(())"</span>
+</code></pre></div></div>
+
+<p>Now we need to follow our directions one character at a time so that means we will also need to work with 
+<a href="http://ruby-for-beginners.rubymonstas.org/built_in_classes/arrays.html" target="_blank">Arrays</a></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">directions_array</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"("</span><span class="p">,</span> <span class="s2">"("</span><span class="p">,</span> <span class="s2">")"</span><span class="p">,</span> <span class="s2">")"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="describing-the-solution-in-english">Describing the solution in English</h2>
+
+<p>My floor starts as <code class="language-plaintext highlighter-rouge">0</code>.
+Given some string of directions I need to:</p>
+
+<ol>
+  <li>Turn that string into an array of individual characters</li>
+  <li>Look at each character in the array one by one
+    <ol>
+      <li>If that character is <code class="language-plaintext highlighter-rouge">(</code> I need to add <code class="language-plaintext highlighter-rouge">1</code> to my floor</li>
+      <li>If that character is <code class="language-plaintext highlighter-rouge">)</code> I need to subtract <code class="language-plaintext highlighter-rouge">1</code> from my floor</li>
+    </ol>
+  </li>
+  <li>Return what floor I am on after I finish looking at all of the characters in the array.</li>
+</ol>
+
+<h2 id="translating-english-solution-into-code">Translating English solution into code</h2>
+
+<p>I can use a variable called <code class="language-plaintext highlighter-rouge">floor</code> to store the floor that I am on. Initially it is <code class="language-plaintext highlighter-rouge">0</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">floor</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div></div>
+
+<p>In order to split up a string of directions into an array of individual characters I can use
+the <code class="language-plaintext highlighter-rouge">.split</code> method. See <a href="https://ruby-doc.org/core-2.7.0/String.html#method-i-split" target="_blank">documentation for .split</a></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">directions_array</span> <span class="o">=</span> <span class="s2">"(())"</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"("</span><span class="p">,</span> <span class="s2">"("</span><span class="p">,</span> <span class="s2">")"</span><span class="p">,</span> <span class="s2">")"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>I can then use <code class="language-plaintext highlighter-rouge">.each</code> on that array to loop through it and adjust my floor based on one character at a time. 
+See <a href="https://ruby-doc.org/core-2.7.0/Array.html#method-i-each" target="_blank">documentation for .each</a></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">directions_array</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">character</span><span class="o">|</span>
+  <span class="c1"># do something with the character</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>In order to do different things depending on what the character is, I will need to use an <code class="language-plaintext highlighter-rouge">if</code> statement.
+See <a href="https://ruby-doc.org/core-2.7.0/doc/syntax/control_expressions_rdoc.html#label-if+Expression">documentation for if</a></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">character</span> <span class="o">==</span> <span class="s2">")"</span>
+  <span class="n">floor</span> <span class="o">=</span> <span class="n">floor</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">elsif</span> <span class="n">character</span> <span class="o">==</span> <span class="s2">"("</span>
+  <span class="n">floor</span> <span class="o">=</span> <span class="n">floor</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+  </div>
+
+  <a class="u-url" href="/aoc/2020/02/08/aoc-2015-day-1.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Pairing with Pat</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Pairing with Pat</li><li><a class="u-email" href="mailto:contact@pairingwithpat.com">contact@pairingwithpat.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/pathouse"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">pathouse</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Videos and guides for beginner to intermediate programmers.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

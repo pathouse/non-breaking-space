@@ -1,4 +1,173 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://www.nonbreakingspace.dev/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.nonbreakingspace.dev/" rel="alternate" type="text/html" /><updated>2020-02-08T13:20:55-05:00</updated><id>https://www.nonbreakingspace.dev/feed.xml</id><title type="html">&amp;amp;NBSP;</title><subtitle>Videos and guides for beginner to intermediate programmers.</subtitle><entry><title type="html">Make this website</title><link href="https://www.nonbreakingspace.dev/2020/02/08/make-this-website.html" rel="alternate" type="text/html" title="Make this website" /><published>2020-02-08T00:00:00-05:00</published><updated>2020-02-08T00:00:00-05:00</updated><id>https://www.nonbreakingspace.dev/2020/02/08/make-this-website</id><content type="html" xml:base="https://www.nonbreakingspace.dev/2020/02/08/make-this-website.html">&lt;h1 id=&quot;what-makes-a-website&quot;&gt;What Makes a Website&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://www.pairingwithpat.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.pairingwithpat.com/" rel="alternate" type="text/html" /><updated>2020-02-09T14:51:13-05:00</updated><id>https://www.pairingwithpat.com/feed.xml</id><title type="html">Pairing with Pat</title><subtitle>Videos and guides for beginner to intermediate programmers.</subtitle><entry><title type="html">AoC - 2015 - Day 1</title><link href="https://www.pairingwithpat.com/aoc/2020/02/08/aoc-2015-day-1.html" rel="alternate" type="text/html" title="AoC - 2015 - Day 1" /><published>2020-02-08T00:00:00-05:00</published><updated>2020-02-08T00:00:00-05:00</updated><id>https://www.pairingwithpat.com/aoc/2020/02/08/aoc-2015-day-1</id><content type="html" xml:base="https://www.pairingwithpat.com/aoc/2020/02/08/aoc-2015-day-1.html">&lt;h1 id=&quot;the-setup&quot;&gt;The Setup&lt;/h1&gt;
+
+&lt;h3 id=&quot;problem-description&quot;&gt;Problem Description&lt;/h3&gt;
+&lt;p&gt;Santa is trying to deliver presents in a large apartment building, but he can’t find the right floor - the directions he got are a little confusing. 
+He starts on the ground floor (floor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;) and then follows the instructions one character at a time.&lt;/p&gt;
+
+&lt;p&gt;An opening parenthesis, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(&lt;/code&gt;, means he should go up one floor, and a closing parenthesis, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;)&lt;/code&gt;, means he should go down one floor.&lt;/p&gt;
+
+&lt;p&gt;The apartment building is very tall, and the basement is very deep; he will never find the top or bottom floors.&lt;/p&gt;
+
+&lt;h3 id=&quot;examples-of-input&quot;&gt;Examples of Input&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(())&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;()()&lt;/code&gt; both result in floor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(((&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(()(()(&lt;/code&gt; both result in floor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;))(((((&lt;/code&gt; also results in floor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;())&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;))(&lt;/code&gt; both result in floor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-1&lt;/code&gt; (the first basement level).&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;)))&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;)())())&lt;/code&gt; both result in floor &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-3&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;question-to-answer&quot;&gt;Question to Answer&lt;/h3&gt;
+
+&lt;p&gt;To what floor do the instructions take Santa?&lt;/p&gt;
+
+&lt;h1 id=&quot;puzzle-input&quot;&gt;Puzzle Input&lt;/h1&gt;
+
+&lt;p&gt;If you are following along and have created an account on AoC, you will receive your own puzzle input, but here is mine:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;()(((()))(()()()((((()(((())(()(()((((((()(()(((())))((()(((()))((())(()((()()()()(((())(((((((())))()()(()(()(())(((((()()()((())(((((()()))))()(())(((())(())((((((())())))(()())))()))))()())()())((()()((()()()()(()((((((((()()())((()()(((((()(((())((())(()))()((((()((((((((())()((()())(())((()))())((((()())(((((((((((()()(((((()(()))())(((()(()))())((()(()())())())(()(((())(())())()()(()(()((()))((()))))((((()(((()))))((((()(()(()())())()(((()((((())((((()(((()()(())()()()())((()((((((()((()()))()((()))()(()()((())))(((()(((()))((()((()(()))(((()()(()(()()()))))()()(((()(((())())))))((()(((())()(()(())((()())))((((())))(()(()(()())()((()())))(((()((()(())()()((()((())(()()((())(())()))()))((()(())()))())(((((((()(()()(()(())())))))))(()((((((())((((())((())())(()()))))()(())(()())()())((())(()))))(()))(()((()))()(()((((((()()()()((((((((()(()(())((()()(()()))(())()())()((())))()))()())(((()))(())()(())()))()((()((()(()()())(())()()()((())())))((()()(()()((()(())()()())(((()(()()))))(())))(()(()())()))()()))))))()))))((((((())))())))(()(())())(()())))))(()))()))))))()((()))))()))))(()(()((()())())(()()))))(((())()))())())())(((()(()()))(())()(())(())((((((()()))))((()(()))))))(()))())(((()()(()))()())()()()())))))))))))))(())(()))(()))((()(())(()())(())())(()())(())()()(()())))()()()))(())())()))())())(())((())))))))(())))(())))))()))))((())(()(((()))))(()))()((()(())))(()())(((((()))()())()()))))()))))()))())(()(()()()))()))))))((()))))))))))()((()))((()(())((())()()(()()))()(()))))()()(()))()))(((())))(())()((())(())(()())()())())))))))())))()((())))()))(()))()()))(((((((()))())(()()))(()()(()))()(()((()())()))))))(((()()()())))(())()))()())(()()))()()))))))))(())))()))()()))))))()))()())))()(())(())))))()(())()()(()()))))())((()))))()))))(()(((((()))))))))())))())()(())()()))))(())))())()()())()()())()(()))))()))()))))))))())))((()))()))()))())))()())()()())))())))(()((())()((()))())))))())()(())((())))))))))))())()())(())())())(()))(()))()))())(()(())())()())()()(()))))(()(())))))))(())))())(())))))))())()()(())())())))(())))))()))()(()())()(()))())())))))()()(()))()))))())))))))))()))))()))))))())()())()()))))()())))())))))))))))()()))))()()(((()))()()(())()))))((()))))(()))(())())))(())()))))))(()))()))))(())())))))()))(()())))))))))))))())))))))))()((()())(()())))))))((()))))(())(())))()(()())())))())())(()()()())))()))))))())))))())()()())))))))))))()()(()))))()())()))((()())(()))))()(()))))))))))()())())(((())(()))))())()))()))()))))))()))))))(()))))()))))()(())))(())))(()))())()()(()()))()))(()()))))))))()))(()))())(()()(()(()())()()))()))))))))(())))))((()()(()))())())))))()))())(()())()()))())))()(()()()()))((())())))())()(()()))()))))))))(()))(())))()))))(()(()())(()))))()())())()))()()))())))))))))))())()))))))()))))))))())))))()))))())(()())))(())()))())())))))()()(()()())(()())))()()))(((()))(()()()))))()))))()))))((())))()((((((()()))))))())))))))))))(((()))))))))))))(())())))))())(()))))))(()))((()))())))()(()((()))()))()))))))))))())()))()(()()))))())))())(())()(()))()))())(()))()))))(()()))()()(())))))()))(())(()(()()))(()()())))))(((()))))))()))))))))))))(())(()))))()())())()()((()()))())))))(()))))())))))))()()()))))))))())))()(((()()))(())))))(((())())))))((()))()(()))(()))))(()())))(()))())))))()))))(())(())))()((()))(())())))()()))()))))))))()))(()()()(()()()(()))())(())()())(((()))(())))))))))(((()())))()()))))))))()(())(()))()((((())(())(()())))()))(((())()()()))((()))(()))())())))())))(()))())()())())(()(())())()()()(())))())(())))(())))(())()))()))(()((()))))))))())(()))))))())(()()))()()))()(()(()())))()()(()((()((((((()))(())))()()()))())()))((()()(()))())((()(()(()))(()()))))()())))()))()())))))))()()((()())(())))()))(()))(())(()))())(()(())))()()))))))(((()(((()()))()(()(())())((()()))()))()))()))()(()()()(()))((()())()(())))()()))(((())()()())(())()((()()()()(()(())(()()))()(((((()())))((())))))(()()()))))(((()(())))()))((()((()(())()(()((())))((()())()(()))(((()())()()(()))(())(((()((()())()((())()())(((()()))((()((())(()))(()())(()()()))((()))(())(()((()()())((()))(())))(())(())(())))(()())))(((((()(()(((((()())((((()(()())(())(()()(((())((()(((()()(((()()((((((())))())(()((((((()(()))()))()()((()((()))))()(()()(()((()()))))))(((((()(((((())()()()(())())))))))()))((()()(())))(())(()()()())))))(()((((())))))))()()(((()(()(()(()(()())()()()(((((((((()()())()(()))((()()()()()(((((((()())()((())()))((((((()(()(()(()())(((()(((((((()(((())(((((((((())(())())()))((()(()))(((()()())(())(()(()()(((()(())()))())))(())((((((())(()()())()()(((()(((())(()(((())(((((((()(((((((((()))(())(()(()(()))))((()))()(())())())((()(()((()()))((()()((()(())(())(()((())(((())(((()()()((((((()()(())((((())()))))(())((()(()((())))(((((()(()()())())((())())))((())((()((()()((((((())(((()()(()())())(()(()))(()(()))())())()(((((((()(((()(())()()((())((()(()()((()(()()(((((((((((())((())((((((())((()((((()(()((((()(((((((())()((()))))())()((()((((()(()(((()((()())))(())())(((()(((())((((((()(((((((((()()(())))(()(((((()((((()())))((()((()((()(()()(((())((((((((((((()(((())(()(((((()))(()()(()()()()()()((())(((((((())(((((())))))())()(()()(()(()(((()()(((((())(()((()((()(((()()((()((((())()))()((((())(())))()())(((())(())(()()((()(((()()((((((((((()()(()())())(((((((((())((((()))()()((((())(()((((()(((())())(((((((((((()((((())))(())(()(((()(((()((())(((((()((()()(()(()()((((((()((((()((()(()((()(()((((((()))))()()(((((()((()(()(())()))(())(((((((()((((()())(()((()((()(()))())))(())((()))))(((((((()()()())(()))(()()((()())()((()((()()()(()(()()))(()())(())(((((()(((((((((((()((()(((()(((((((()()((((((()(((((()(()((()(((((())((((((()))((((())((()()((())(((())()(((((()()(((((()((()(()(((((((()(((((()((()((()((())(())((())(()))()()))(()()(()(()()(((((((()(((()(((())()(((((()((((((()())((((())()((()((()(()()())(()))((((()()((((((()((()(()(()((((()((()((())((((((()(()(())((((((()((((((((((()((())()))()(()(()(((((()()()))((())))()(()((((((((((((((()(((()((((()((())((()((()(((()()(()(((()((())(()()())))()(()(()(((((()()(()(()((((()(((((())()(()(()))(((((()()(((()()(())((((((((((((((())((())(((((((((((())()()()(())()(()(()(((((((((())(((()))(()()())(()((((()(())(((((()())(())((((((((())()((((()((((((())(()((()(())(((()((((()))(((((((((()()))((((()(())()()()(())(()((())((()()))()(((())(((((())((((((()()))(((((((((()((((((())))(((((((()((()(()(())))())(()(()))()(((((()())(()))()(()(())(((()))))())()())))(((((()))())()((()(()))))((()()()((((((()))()()((((((((())((()(()(((()(()((())((()())(()((((())(()(((()()()(()(()()))())())((((((((((())())((()))()((())(())(())))())()(()()(())))())(()))(((()(()()(((()(((())))()(((()(())()((((((())()))()))()((((((()(()(((((()())))()))))())()()(((()(((((())((()()(()((()((()(()(()(())))(()()()()((()(())(((()((()))((((()))())(())))())(()))()()()())()))(((()()())()((())))(())(()()()()(()())((()(()()((((())))((()((()(())((()(()((())()(()()(((()())()()())((()))((())(((()()(())))()()))(((()((())()(((((()())(())((())()())())((((((()(()(((((()))(()(
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;getting-started---simple-approach&quot;&gt;Getting Started - Simple Approach&lt;/h1&gt;
+
+&lt;p&gt;I don’t know for sure, but my hypothesis about what’s happening here is that Santa’s elves have lost their minds.
+Over the years as the world’s human population has grown to billions of people, Santa’s elves have had to work harder
+and harder each year to produce presents for everyone, and they’ve finally reached their breaking point.&lt;/p&gt;
+
+&lt;p&gt;So instead of taking appropriate measures to provide mental healthcare to his elves, Santa has hired us to untangle the directions
+they have produced for him in their maddened state.&lt;/p&gt;
+
+&lt;p&gt;We will see what we can do.&lt;/p&gt;
+
+&lt;h2 id=&quot;translating-the-problem-into-code&quot;&gt;Translating the problem into code&lt;/h2&gt;
+
+&lt;p&gt;The first step when trying to solve any kind of problem with code is determining which data structures in the code we will use to represent
+various things.&lt;/p&gt;
+
+&lt;p&gt;In this case it looks like we will at the very least need to deal with 
+&lt;a href=&quot;http://ruby-for-beginners.rubymonstas.org/built_in_classes/numbers.html&quot; target=&quot;_blank&quot;&gt;Numbers&lt;/a&gt;
+and &lt;a href=&quot;http://ruby-for-beginners.rubymonstas.org/built_in_classes/strings.html&quot; target=&quot;_blank&quot;&gt;Strings&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The floors will be represented as a number:&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;floor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Moving up a floor can be represented by addition:&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;floor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;floor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Moving down a floor can be represented by subtraction:&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;floor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;floor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And the directions will be represented as strings:&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;directions&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;(())&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now we need to follow our directions one character at a time so that means we will also need to work with 
+&lt;a href=&quot;http://ruby-for-beginners.rubymonstas.org/built_in_classes/arrays.html&quot; target=&quot;_blank&quot;&gt;Arrays&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;directions_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;(&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;(&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;describing-the-solution-in-english&quot;&gt;Describing the solution in English&lt;/h2&gt;
+
+&lt;p&gt;My floor starts as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;.
+Given some string of directions I need to:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Turn that string into an array of individual characters&lt;/li&gt;
+  &lt;li&gt;Look at each character in the array one by one
+    &lt;ol&gt;
+      &lt;li&gt;If that character is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(&lt;/code&gt; I need to add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; to my floor&lt;/li&gt;
+      &lt;li&gt;If that character is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;)&lt;/code&gt; I need to subtract &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; from my floor&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Return what floor I am on after I finish looking at all of the characters in the array.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;translating-english-solution-into-code&quot;&gt;Translating English solution into code&lt;/h2&gt;
+
+&lt;p&gt;I can use a variable called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;floor&lt;/code&gt; to store the floor that I am on. Initially it is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;floor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In order to split up a string of directions into an array of individual characters I can use
+the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.split&lt;/code&gt; method. See &lt;a href=&quot;https://ruby-doc.org/core-2.7.0/String.html#method-i-split&quot; target=&quot;_blank&quot;&gt;documentation for .split&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;directions_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;(())&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;(&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;(&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I can then use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.each&lt;/code&gt; on that array to loop through it and adjust my floor based on one character at a time. 
+See &lt;a href=&quot;https://ruby-doc.org/core-2.7.0/Array.html#method-i-each&quot; target=&quot;_blank&quot;&gt;documentation for .each&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;directions_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;character&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# do something with the character&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In order to do different things depending on what the character is, I will need to use an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if&lt;/code&gt; statement.
+See &lt;a href=&quot;https://ruby-doc.org/core-2.7.0/doc/syntax/control_expressions_rdoc.html#label-if+Expression&quot;&gt;documentation for if&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;character&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;)&quot;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;floor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;floor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;elsif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;character&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;(&quot;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;floor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;floor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="aoc" /><summary type="html">The Setup</summary></entry><entry><title type="html">Tools - Hammerspoon</title><link href="https://www.pairingwithpat.com/tools/2020/02/08/tools-hammerspoon.html" rel="alternate" type="text/html" title="Tools - Hammerspoon" /><published>2020-02-08T00:00:00-05:00</published><updated>2020-02-08T00:00:00-05:00</updated><id>https://www.pairingwithpat.com/tools/2020/02/08/tools-hammerspoon</id><content type="html" xml:base="https://www.pairingwithpat.com/tools/2020/02/08/tools-hammerspoon.html">&lt;h1 id=&quot;the-problem&quot;&gt;The Problem&lt;/h1&gt;
+
+&lt;p&gt;Resizing windows with a mouse is annoying.&lt;/p&gt;
+
+&lt;h1 id=&quot;the-solution&quot;&gt;The Solution&lt;/h1&gt;
+
+&lt;p&gt;Use the automation tool &lt;a href=&quot;https://www.hammerspoon.org/&quot;&gt;Hammerspoon&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;lua&quot;&gt;Lua&lt;/h1&gt;
+
+&lt;p&gt;Hammerspoon scripts are written in &lt;a href=&quot;https://www.lua.org/&quot;&gt;Lua&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://learnxinyminutes.com/docs/lua/&quot;&gt;Learn X in Y Minutes Where X=Lua&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;window-grid&quot;&gt;Window Grid&lt;/h1&gt;
+
+&lt;p&gt;In &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.hammerspoon/init.lua&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-lua highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;-- config reload&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;hs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Config loaded&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;-- animation duration&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;hs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;animationDuration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;-- grid config&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;hs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GRIDHEIGHT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;hs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GRIDWIDTH&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;hs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MARGINX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;hs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MARGINY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;-- manual window move screen / resize&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;hs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hotkey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ctrl&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;D&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;hs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CTRL + D&lt;/code&gt; to display the grid&lt;/li&gt;
+  &lt;li&gt;Letter of the grid that corresponds with upper left corner of the window&lt;/li&gt;
+  &lt;li&gt;Letter of the grid that corresponds with lower right corner of the window&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;e.g.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Full screen: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CTRL+D 1 V&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Left half of screen: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CTRL+D 1 X&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Right half of screen: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CTRL+D 3 V&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="tools" /><summary type="html">The Problem</summary></entry><entry><title type="html">Make this website</title><link href="https://www.pairingwithpat.com/walkthrough/2020/02/08/make-this-website.html" rel="alternate" type="text/html" title="Make this website" /><published>2020-02-08T00:00:00-05:00</published><updated>2020-02-08T00:00:00-05:00</updated><id>https://www.pairingwithpat.com/walkthrough/2020/02/08/make-this-website</id><content type="html" xml:base="https://www.pairingwithpat.com/walkthrough/2020/02/08/make-this-website.html">&lt;h1 id=&quot;what-makes-a-website&quot;&gt;What Makes a Website&lt;/h1&gt;
 
 &lt;p&gt;HTML + CSS&lt;/p&gt;
 
@@ -31,8 +200,14 @@ git commit &lt;span class=&quot;nt&quot;&gt;-am&lt;/span&gt; &lt;span class=&quo
       &lt;li&gt;remove twitter_username&lt;/li&gt;
       &lt;li&gt;remove &lt;a href=&quot;https://github.com/jekyll/minima&quot;&gt;minima theme&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;add &lt;a href=&quot;https://github.com/jekyll/jekyll-seo-tag&quot;&gt;jekyll-seo-tag&lt;/a&gt; to plugins&lt;/li&gt;
-      &lt;li&gt;add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem jekyll-seo-tag&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; within &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;group :jekyll_plugins&lt;/code&gt;&lt;/li&gt;
     &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Update the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt; to include &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-seo-tag&lt;/code&gt;
+    &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:jekyll_plugins&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'jekyll-seo-tag'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'2.6.1'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;Copy all of the assets from the starter theme plugin (minima) into our project.
 See &lt;a href=&quot;https://jekyllrb.com/docs/themes/#overriding-theme-defaults&quot;&gt;Overriding theme defaults&lt;/a&gt;
@@ -74,6 +249,34 @@ git commit &lt;span class=&quot;nt&quot;&gt;-am&lt;/span&gt; &lt;span class=&quo
   &lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;h1 id=&quot;changing-syntax-highlighting&quot;&gt;Changing Syntax Highlighting&lt;/h1&gt;
+
+&lt;p&gt;Jekyll uses &lt;a href=&quot;https://github.com/rouge-ruby/rouge&quot;&gt;Rouge&lt;/a&gt; to do syntax highlight on blocks of code in Markdown.
+I am going to use the Thankful Eyes theme.&lt;/p&gt;
+
+&lt;p&gt;In terminal:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;rouge
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In ruby console (irb)&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'_scss/minima/_syntax-highlighting.scss'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'wb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; 
+  &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Rouge&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Themes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ThankfulEyes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;render&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;scope: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'.highlight'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I like this for blocks of code but it’s too strong to apply the exact same styles to inline blocks.
+Instead I am going to translate the background color to rgba and set the alpha value to something less than 1 so that there’s enough
+of a difference to catch the eye but not too much to make it a jarring transition from the white-backgrounded text that will be right next to it.&lt;/p&gt;
+
+&lt;p&gt;In &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_scss/minima/_base.scss&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;pre&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; 
+&lt;span class=&quot;nt&quot;&gt;code&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.language-plaintext&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;52&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;71&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;.03&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;h1 id=&quot;changing-fonts&quot;&gt;Changing Fonts&lt;/h1&gt;
 
 &lt;p&gt;I like sans-serif fonts for headers but I prefer serif for body copy.&lt;/p&gt;
@@ -103,24 +306,30 @@ git commit &lt;span class=&quot;nt&quot;&gt;-am&lt;/span&gt; &lt;span class=&quo
 &lt;ol&gt;
   &lt;li&gt;Navigate to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.oh-my-zsh/custom&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;Create a new file called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-blog.zsh&lt;/code&gt; and open it in my editor&lt;/li&gt;
-  &lt;li&gt;Write a function called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new_post&lt;/code&gt; that will take two arugments - title and summary of the post I plan to write.
+  &lt;li&gt;Write a function called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new_post&lt;/code&gt; that will take three arugments
     &lt;ol&gt;
-      &lt;li&gt;It should use the title to generate a file name that will be the slug like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2020-02-08-my-title.md&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;It should add the title and the summary to the YAML frontmatter of the file&lt;/li&gt;
-      &lt;li&gt;It should then open the file in my editor&lt;/li&gt;
+      &lt;li&gt;The directory where the post should go&lt;/li&gt;
+      &lt;li&gt;The title of the post&lt;/li&gt;
+      &lt;li&gt;A short summary of what the post is about&lt;/li&gt;
     &lt;/ol&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;p&gt;This function should…
+    1. use the title to generate a file name that will be the slug like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2020-02-08-my-title.md&lt;/code&gt;
+    1. add the title and the summary to the YAML frontmatter of the file
+    1. write the file in the directoy specified
+    1. open my text editor (&lt;a href=&quot;https://www.gnu.org/software/emacs/&quot;&gt;Emacs&lt;/a&gt;) in the directory where I created the file&lt;/p&gt;
+
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;new_post&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/NonBreakingSpace/blog/_posts
-  &lt;span class=&quot;nv&quot;&gt;SLUGIFIED&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'s/[^[:alnum:]]/-/g'&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;tr&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'-'&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;tr &lt;/span&gt;A-Z a-z&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;SLUGIFIED&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;sed&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'s/[^[:alnum:]]/-/g'&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;tr&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'-'&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;tr &lt;/span&gt;A-Z a-z&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
   &lt;span class=&quot;nv&quot;&gt;SLUG&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt; +&lt;span class=&quot;s2&quot;&gt;&quot;%Y-%m-%d&quot;&lt;/span&gt;-&lt;span class=&quot;nv&quot;&gt;$SLUGIFIED&lt;/span&gt;.md&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;front_matter&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt; &amp;gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$SLUG&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
 ---
 layout: post
-title: '&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;'
-summary: '&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$2&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;'
+title: '&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$2&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;'
+summary: '&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$3&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;'
 ---
 
 ### Words Go Here
@@ -148,7 +357,7 @@ summary: '&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$2&lt;/span&gt;&lt;span 
 
 &lt;h2 id=&quot;using-the-function&quot;&gt;Using the function&lt;/h2&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;new_post &lt;span class=&quot;s2&quot;&gt;&quot;Make this Website&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Learn how this website was made.&quot;&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;new_post ~/NonBreakingSpace/blog/_posts/ &lt;span class=&quot;s2&quot;&gt;&quot;Make this Website&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Learn how this website was made.&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;writing-the-post&quot;&gt;Writing the Post&lt;/h1&gt;
@@ -184,21 +393,19 @@ Set the repo as a remote&lt;/p&gt;
 
 &lt;p&gt;Then run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle update&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Build the site&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll build
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Build the site into the output folder used by Github Pages&lt;/p&gt;
 
-&lt;p&gt;Change the directory the build site is in for use with Github Pages&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;mv &lt;/span&gt;_site docs
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jekyll build &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; docs
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Commit all changes&lt;/p&gt;
+
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git add &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt;
 git commit &lt;span class=&quot;nt&quot;&gt;-am&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Deploying with Github Pages'&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Push your changes to github&lt;/p&gt;
+
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push origin master
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;In in the Github Repo go to settings, scroll down to Github pages - select &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;master branch /docs folder&lt;/code&gt; as the source for your site&lt;/p&gt;</content><author><name></name></author><summary type="html">What Makes a Website</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.nonbreakingspace.dev/" /><media:content medium="image" url="https://www.nonbreakingspace.dev/" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;In in the Github Repo go to settings, scroll down to Github pages - select &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;master branch /docs folder&lt;/code&gt; as the source for your site&lt;/p&gt;</content><author><name></name></author><category term="walkthrough" /><summary type="html">What Makes a Website</summary></entry></feed>
