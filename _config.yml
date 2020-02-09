@@ -18,13 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: "&NBSP;"
-email: pat@nonbreakingspace.dev
+title: "Pairing with Pat"
+email: contact@pairingwithpat.com
 description: >- # this means to ignore newlines until "baseurl:"
   Videos and guides for beginner to intermediate programmers.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.nonbreakingspace.dev"
+url: "https://www.pairingwithpat.com"
 github_username:  pathouse
+header_pages:
 
 # Build settings
 plugins:

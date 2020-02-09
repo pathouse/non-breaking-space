@@ -9,12 +9,27 @@ layout: default
 
   {{ content }}
 
+  {%- assign page_paths = site.pages | map: "path" -%}
+  <h2 class="post-list-heading">Topics</h2>
+  <ul class="post-list">
+  {%- for path in page_paths -%}
+    {%- assign my_page = site.pages | where: "path", path | first -%}
+    {%- if my_page.title -%}
+      <li>
+        <h3>
+          <a class="post-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+        </h3>
+      </li>
+    {%- endif -%}
+  {%- endfor -%}
+  </ul>
+
   {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <h2 class="post-list-heading">Recent Posts</h2>
     <ul class="post-list">
       {%- for post in site.posts -%}
       <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {%- assign date_format = "%b %-d, %Y" -%}
         <span class="post-meta">{{ post.date | date: date_format }}</span>
         <h3>
           <a class="post-link" href="{{ post.url | relative_url }}">
@@ -30,5 +45,4 @@ layout: default
 
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
   {%- endif -%}
-
 </div>

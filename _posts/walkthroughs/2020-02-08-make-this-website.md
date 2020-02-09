@@ -2,6 +2,7 @@
 layout: post
 title: 'Make this website'
 summary: 'Learn how this website was made.'
+category: 'walkthrough'
 ---
 
 # What Makes a Website

@@ -2,6 +2,7 @@
 layout: post
 title: 'Tools - Hammerspoon'
 summary: 'A brief overview of using Hammerspoon for Window Management'
+category: 'tools'
 ---
 
 # The Problem

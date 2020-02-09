@@ -1,7 +1,8 @@
 ---
-layout: post
-title: 'Introduction to Advent of Code'
-summary: 'A series of posts in which we will work through the puzzles of Advent of Code.'
+layout: category_page
+title: 'Advent of Code'
+permalink: /advent-of-code/
+category: 'aoc'
 ---
 
 # Motivation
@@ -55,8 +56,3 @@ The posts that go along with the videos will cover things in a lot more detail a
 The goal here is for you to get a window into what it looks like when I write code and gain some insight into how I think about using code
 to solve problems. The onus is on you to use the various resources provided to research answers to different questions you have
 and to clarify areas that you are unclear about.
-
-# Feedback
-
-Any feedback about what you did or did not like about these posts is appreciated and can be sent to 
-[pat@nonbreakingspace.dev](mailto:pat@nonbreakingspace.dev)
