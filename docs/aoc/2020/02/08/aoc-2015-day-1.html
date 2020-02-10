@@ -55,7 +55,7 @@ He starts on the ground floor (floor <code class="language-plaintext highlighter
 
 <p>The apartment building is very tall, and the basement is very deep; he will never find the top or bottom floors.</p>
 
-<h3 id="examples-of-input">Examples of Input</h3>
+<h3 id="example-of-input">Example of Input</h3>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">(())</code> and <code class="language-plaintext highlighter-rouge">()()</code> both result in floor <code class="language-plaintext highlighter-rouge">0</code>.</li>
@@ -86,6 +86,10 @@ and harder each year to produce presents for everyone, and they’ve finally rea
 they have produced for him in their maddened state.</p>
 
 <p>We will see what we can do.</p>
+
+<h2 id="video">Video</h2>
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SIPeJcACyy4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
 <h2 id="translating-the-problem-into-code">Translating the problem into code</h2>
 
@@ -145,7 +149,7 @@ Given some string of directions I need to:</p>
 the <code class="language-plaintext highlighter-rouge">.split</code> method. See <a href="https://ruby-doc.org/core-2.7.0/String.html#method-i-split" target="_blank">documentation for .split</a></p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">directions_array</span> <span class="o">=</span> <span class="s2">"(())"</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
-<span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"("</span><span class="p">,</span> <span class="s2">"("</span><span class="p">,</span> <span class="s2">")"</span><span class="p">,</span> <span class="s2">")"</span><span class="p">]</span>
+<span class="c1">#=&gt; ["(", "(", ")", ")"]</span>
 </code></pre></div></div>
 
 <p>I can then use <code class="language-plaintext highlighter-rouge">.each</code> on that array to loop through it and adjust my floor based on one character at a time. 
@@ -165,6 +169,325 @@ See <a href="https://ruby-doc.org/core-2.7.0/doc/syntax/control_expressions_rdoc
   <span class="n">floor</span> <span class="o">=</span> <span class="n">floor</span> <span class="o">-</span> <span class="mi">1</span>
 <span class="k">end</span>
 </code></pre></div></div>
+
+<h3 id="putting-it-all-together">Putting it all together</h3>
+
+<p>We’re going to define a method that is going to do the work for us, and the input to that method is going to be 
+these directions that we are getting as a string of parentheses.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">follow_directions</span><span class="p">(</span><span class="n">directions_string</span><span class="p">)</span>
+  <span class="c1"># do stuff here</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>The first thing we are going to put inside our method is going to be the code that handles that
+first part of our plain english solution</p>
+
+<blockquote>
+  <p>Turn that string into an array of individual characters</p>
+</blockquote>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">follow_directions</span><span class="p">(</span><span class="n">directions_string</span><span class="p">)</span>
+  <span class="n">directions_array</span> <span class="o">=</span> <span class="n">directions_string</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>The next part of our method is going to initialize the variable that is going to store what floor we are on. So we can
+call that variable <code class="language-plaintext highlighter-rouge">floor</code> and we can set it to <code class="language-plaintext highlighter-rouge">0</code> to start.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">follow_directions</span><span class="p">(</span><span class="n">directions_string</span><span class="p">)</span>
+  <span class="n">directions_array</span> <span class="o">=</span> <span class="n">directions_string</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+  <span class="n">floor</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>After that we are going to start working on the second part of our plain english solution.</p>
+
+<blockquote>
+  <p>Look at each character in the array one by one</p>
+</blockquote>
+
+<p>To do this we are going to use the <code class="language-plaintext highlighter-rouge">.each</code> method.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">follow_directions</span><span class="p">(</span><span class="n">directions_string</span><span class="p">)</span>
+  <span class="n">directions_array</span> <span class="o">=</span> <span class="n">directions_string</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+  <span class="n">floor</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">directions_array</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">direction</span><span class="o">|</span>
+    <span class="c1"># do stuff here</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Inside of this <code class="language-plaintext highlighter-rouge">.each</code> method we are going to handle the next two parts of our plain english solution.</p>
+
+<blockquote>
+  <p>If that character is <code class="language-plaintext highlighter-rouge">(</code> I need to add <code class="language-plaintext highlighter-rouge">1</code> to my floor</p>
+</blockquote>
+
+<blockquote>
+  <p>If that character is <code class="language-plaintext highlighter-rouge">)</code> I need to subtract <code class="language-plaintext highlighter-rouge">1</code> from my floor</p>
+</blockquote>
+
+<p>We are going to accomplish this with the <code class="language-plaintext highlighter-rouge">if</code> statement that we talked about earlier.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">follow_directions</span><span class="p">(</span><span class="n">directions_string</span><span class="p">)</span>
+  <span class="n">directions_array</span> <span class="o">=</span> <span class="n">directions_string</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+  <span class="n">floor</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">directions_array</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">direction</span><span class="o">|</span>
+    <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">")"</span>
+      <span class="n">floor</span> <span class="o">=</span> <span class="n">floor</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">"("</span>
+      <span class="n">floor</span> <span class="o">=</span> <span class="n">floor</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>The final part of our method is going to take care of the last part of our plain english solution.</p>
+
+<blockquote>
+  <p>Return what floor I am on after I finish looking at all of the characters in the array.</p>
+</blockquote>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">follow_directions</span><span class="p">(</span><span class="n">directions_string</span><span class="p">)</span>
+  <span class="n">directions_array</span> <span class="o">=</span> <span class="n">directions_string</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+  <span class="n">floor</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">directions_array</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">direction</span><span class="o">|</span>
+    <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">")"</span>
+      <span class="n">floor</span> <span class="o">=</span> <span class="n">floor</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">"("</span>
+      <span class="n">floor</span> <span class="o">=</span> <span class="n">floor</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  <span class="n">floor</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<h3 id="testing-our-method">Testing our method</h3>
+
+<p>We can use the examples of inputs and outputs for this problem to test our method.</p>
+
+<p>So we know that the input <code class="language-plaintext highlighter-rouge">(())</code> should produce the output <code class="language-plaintext highlighter-rouge">0</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">follow_directions</span><span class="p">(</span><span class="s2">"(())"</span><span class="p">)</span>
+<span class="c1">#=&gt; 0</span>
+</code></pre></div></div>
+
+<p>And we know that the input <code class="language-plaintext highlighter-rouge">(()(()(</code> should produce the output <code class="language-plaintext highlighter-rouge">3</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">follow_directions</span><span class="p">(</span><span class="s2">"(()(()("</span><span class="p">)</span>
+<span class="c1">#=&gt; 3</span>
+</code></pre></div></div>
+
+<p>When we are running our method and we want to print out the output of the method to the console we can use <code class="language-plaintext highlighter-rouge">puts</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="n">follow_direcitons</span><span class="p">(</span><span class="s2">"(())"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This is fine for manual testing, but manual testing is tedious and error prone, so what I would like to do is write some code that will
+use all of the examples I have for this problem to automatically test my code for me.</p>
+
+<p>Right now all of my examples are written in plain english.</p>
+
+<blockquote>
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">(())</code> and <code class="language-plaintext highlighter-rouge">()()</code> both result in floor <code class="language-plaintext highlighter-rouge">0</code>.</li>
+    <li><code class="language-plaintext highlighter-rouge">(((</code> and <code class="language-plaintext highlighter-rouge">(()(()(</code> both result in floor <code class="language-plaintext highlighter-rouge">3</code>.</li>
+    <li><code class="language-plaintext highlighter-rouge">))(((((</code> also results in floor <code class="language-plaintext highlighter-rouge">3</code>.</li>
+    <li><code class="language-plaintext highlighter-rouge">())</code> and <code class="language-plaintext highlighter-rouge">))(</code> both result in floor <code class="language-plaintext highlighter-rouge">-1</code> (the first basement level).</li>
+    <li><code class="language-plaintext highlighter-rouge">)))</code> and <code class="language-plaintext highlighter-rouge">)())())</code> both result in floor <code class="language-plaintext highlighter-rouge">-3</code>.</li>
+  </ul>
+</blockquote>
+
+<p>So just like we did with the main problem, the first thing to do here is to figure out how to represent my examples as 
+data structures in code that I can use in a program.</p>
+
+<p>The first idea that comes to me is that I can represent each example as an Array.
+The first item in the array will be the input and the second item in the array will be the output that I expect.</p>
+
+<p>For instance, the first example can be represented as:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="s2">"(())"</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>I can then put all of these individual arrays into one big array that will hold all of my examples.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span>
+  <span class="p">[</span><span class="s2">"(())"</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"()()"</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"((("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"(()(()("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"))((((("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"())"</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"))("</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">")))"</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">")())())"</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p>Now let’s once again describe how this testing code is going to work in plan english.</p>
+
+<p>Given an array of examples, where each example is an array where the first item is the input, and the second item is the expected
+output.</p>
+
+<ol>
+  <li>Go through each example in the array one by one
+    <ol>
+      <li>Call the method I want to test using the first part of the example as the input</li>
+      <li>Check to see if the output of my method matches the output I expect, which is stored in the second part of the example</li>
+      <li>If the output I get is equal to the output I expect, then my test passes</li>
+      <li>If the output I get is not equal to the output I expect, then my test fails
+        <ol>
+          <li>If my test fails I should print out what I expect and what I got so that I can understand why it failed.</li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+</ol>
+
+<p>So to take care of the first part of my plain english solution I can once again use <code class="language-plaintext highlighter-rouge">.each</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span>
+  <span class="p">[</span><span class="s2">"(())"</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"()()"</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"((("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"(()(()("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"))((((("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"())"</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"))("</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">")))"</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">")())())"</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">test_case</span><span class="o">|</span>
+  <span class="c1"># run tests here</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Now each test case has two parts - the input (a set of directions as a string) and the expected output.
+So first I am going to pull out those two parts into their own variables.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span>
+  <span class="p">[</span><span class="s2">"(())"</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"()()"</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"((("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"(()(()("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"))((((("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"())"</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"))("</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">")))"</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">")())())"</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">test_case</span><span class="o">|</span>
+  <span class="n">directions</span> <span class="o">=</span> <span class="n">test_case</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">expected</span> <span class="o">=</span> <span class="n">test_case</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Next I am going to call my method on the input and save the result in a variable.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span>
+  <span class="p">[</span><span class="s2">"(())"</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"()()"</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"((("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"(()(()("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"))((((("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"())"</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"))("</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">")))"</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">")())())"</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">test_case</span><span class="o">|</span>
+  <span class="n">directions</span> <span class="o">=</span> <span class="n">test_case</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">expected</span> <span class="o">=</span> <span class="n">test_case</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+  <span class="n">received</span> <span class="o">=</span> <span class="n">follow_directions</span><span class="p">(</span><span class="n">directions</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Now I can write the code that checks whether or not what I expected is equal to what I received to handle
+the next two parts of my plain english solution.</p>
+
+<blockquote>
+  <p>If the output I get is equal to the output I expect, then my test passes</p>
+</blockquote>
+
+<blockquote>
+  <p>If the output I get is not equal to the output I expect, then my test fails</p>
+</blockquote>
+
+<p>So once again I am going to use an <code class="language-plaintext highlighter-rouge">if</code> statement and I am going to use <code class="language-plaintext highlighter-rouge">puts</code> to print the result of the test to the screen.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span>
+  <span class="p">[</span><span class="s2">"(())"</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"()()"</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"((("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"(()(()("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"))((((("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"())"</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"))("</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">")))"</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">")())())"</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">test_case</span><span class="o">|</span>
+  <span class="n">directions</span> <span class="o">=</span> <span class="n">test_case</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">expected</span> <span class="o">=</span> <span class="n">test_case</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+  <span class="n">received</span> <span class="o">=</span> <span class="n">follow_directions</span><span class="p">(</span><span class="n">directions</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">expected</span> <span class="o">==</span> <span class="n">received</span>
+    <span class="nb">puts</span> <span class="s1">'PASSED'</span>
+  <span class="k">else</span>
+    <span class="nb">puts</span> <span class="s1">'FAILED'</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Now there is just one last thing to do from our plain english description.</p>
+
+<blockquote>
+  <p>If my test fails I should print out what I expect and what I got so that I can understand why it failed.</p>
+</blockquote>
+
+<p>I can do this by using 
+<a href="http://ruby-for-beginners.rubymonstas.org/bonus/string_interpolation.html" target="_blank">String Interpolation</a></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span>
+  <span class="p">[</span><span class="s2">"(())"</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"()()"</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"((("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"(()(()("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"))((((("</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"())"</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">"))("</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">")))"</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="s2">")())())"</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="p">].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">test_case</span><span class="o">|</span>
+  <span class="n">directions</span> <span class="o">=</span> <span class="n">test_case</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">expected</span> <span class="o">=</span> <span class="n">test_case</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+  <span class="n">received</span> <span class="o">=</span> <span class="n">follow_directions</span><span class="p">(</span><span class="n">directions</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">expected</span> <span class="o">==</span> <span class="n">received</span>
+    <span class="nb">puts</span> <span class="s1">'PASSED'</span>
+  <span class="k">else</span>
+    <span class="nb">puts</span> <span class="s1">'FAILED'</span>
+    <span class="nb">puts</span> <span class="s2">"Expected: </span><span class="si">#{</span><span class="n">expected</span><span class="si">}</span><span class="s2">"</span>
+    <span class="nb">puts</span> <span class="s2">"Received: </span><span class="si">#{</span><span class="n">recevied</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>After running all of our tests and seeing that they all pass we are ready to use our function on our puzzle input.</p>
+
+<h3 id="running-on-puzzle-input">Running on Puzzle Input</h3>
+
+<p>Pasting my puzzle input into my program would be annoying to do because it is so long, so instead I am storing it in a separate file.
+That file is called <code class="language-plaintext highlighter-rouge">puzzle-input.txt</code></p>
+
+<p>I can read from that file using <code class="language-plaintext highlighter-rouge">File.read</code></p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">puzzle_input</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="s2">"./puzzle-input.txt"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Then I can call my method on that string that I have populated with the contents of that file.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">puzzle_input</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="s2">"./puzzle-input.txt"</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">follow_directions</span><span class="p">(</span><span class="n">puzzle_input</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>I can then paste the result of running my method on my puzzle input - <code class="language-plaintext highlighter-rouge">138</code> - into the answer input for Advent of Code to see if it is correct… 
+and it is! So we have successfully completed part 1 of this puzzle.</p>
 
   </div>
 
