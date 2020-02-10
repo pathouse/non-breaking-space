@@ -1,5 +1,5 @@
 ---
-layout: category_page
+layout: advent_of_code
 title: 'Advent of Code'
 permalink: /advent-of-code/
 category: 'aoc'

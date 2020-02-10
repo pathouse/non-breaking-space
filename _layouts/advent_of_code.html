@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+  <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  {% assign category_posts = site.posts | where: "category", page.category %}
+  {% assign years = category_posts | map: "year" | uniq | sort %}
+  <ul>
+  {%- for year in years -%}
+    <li>
+    <h2 class="post-list-heading">{{ year }}</h2>
+    {% assign year_posts = category_posts | where: "year", year %}
+    {% assign days = year_posts | map: "day" | uniq | sort %}
+    <ul>
+    {%- for day in days -%}
+      <li>
+      <h3 class="post-list-heading">Day {{ day }}</h3>
+      {% assign day_posts = year_posts | where: "day", day %}
+      <ul>
+      {%- for post in day_posts -%}
+        <li>
+          <h3>
+            <a class="post-link" href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+            {%- assign date_format = "%b %-d, %Y" -%}
+            <span class="post-meta">{{ post.date | date: date_format }}</span>
+          </h3>
+          {%- if site.show_excerpts -%}
+          {{ post.excerpt }}
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+      </ul>
+      </li>
+    {%- endfor -%}
+    </ul>
+    </li>
+  {%- endfor -%}
+  </ul>
+</div>
