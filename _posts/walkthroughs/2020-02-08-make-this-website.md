@@ -168,7 +168,7 @@ front_matter
 ## Using the function
 
 ```bash
-new_post ~/NonBreakingSpace/blog/_posts/ "Make this Website" "Learn how this website was made."
+new_post ~/PairingWithPat/blog/_posts/ "Make this Website" "Learn how this website was made."
 ```
 
 # Writing the Post
@@ -223,3 +223,112 @@ Push your changes to github
 git push origin master
 ```
 In in the Github Repo go to settings, scroll down to Github pages - select `master branch /docs folder` as the source for your site
+
+# Topic Pages
+
+This theme is built out of the box to handle a standard blog where posts show up in chronological order, but I want to organize the posts
+on this site into various categories and then group the posts within these categories.
+
+Each category will have an introductory page that includes a list of the posts within that category.
+
+So to do this I am going to make a topic category that is similar to the current home page layout.
+I am also going to update the home page layout to list these category pages up top.
+
+To create the category layouts we can copy the home page layout but add a filter to the posts to only lists posts
+from the desired category.
+
+See [Liquid Filters](https://jekyllrb.com/docs/liquid/filters/) documentation on the Jekyll site.
+
+```html
+{% raw %}
+{% assign category_posts = site.posts | where: "category", page.category  %}
+{%- for post in category_posts -%}
+{% endraw %}
+```
+
+The entire layout looks like:
+
+```html
+{% raw %}
+<div class="category-page">
+  {%- if page.title -%}
+  <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  <h2 class="post-list-heading">Posts</h2>
+  <ul class="post-list">
+    {% assign category_posts = site.posts | where: "category", page.category  %}
+    {%- for post in category_posts -%}
+    <li>
+      {%- assign date_format = "%b %-d, %Y" -%}
+      <span class="post-meta">{{ post.date | date: date_format }}</span>
+      <h3>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
+      </h3>
+      {%- if site.show_excerpts -%}
+      {{ post.excerpt }}
+      {%- endif -%}
+    </li>
+    {%- endfor -%}
+  </ul>
+</div>
+{% endraw %}
+```
+
+We can save this new layout in `_layouts/category_layout.html`
+
+Now for each category page we can add the category to the YAML frontmatter.
+
+For example, for the Advent of Code category:
+
+```yaml
+---
+layout: post
+title: 'AoC - 2015 - Day 1'
+summary: 'Working through the first problem in Advent of Code, 2015.'
+category: 'aoc'
+---
+```
+
+We can make the main category page for Advent of Code in the index as `advent-of-code.markdown`
+And setup the YAML frontmatter as follows:
+
+```yaml
+---
+layout: category_page
+title: 'Advent of Code'
+permalink: /advent-of-code/
+category: 'aoc'
+---
+```
+
+Now we can update the home layout to list the various top level pages. We can copy some code that already does this 
+in `_includes/header.html`
+
+```html
+{% raw %}
+{%- assign page_paths = site.pages | map: "path" -%}
+<h2 class="post-list-heading">Categories</h2>
+<ul class="post-list">
+{%- for path in page_paths -%}
+  {%- assign my_page = site.pages | where: "path", path | first -%}
+  {%- if my_page.title -%}
+    <li>
+      <h3>
+        <a class="post-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+      </h3>
+    </li>
+  {%- endif -%}
+{%- endfor -%}
+</ul>
+{% endraw %}
+```
+
+This is where the power of a static site generator and liquid templating really shines - because now we can have multiple category
+pages that share this common HTML structure and automatically include new posts in that category without us having to write the same
+HTML over and over again.
+

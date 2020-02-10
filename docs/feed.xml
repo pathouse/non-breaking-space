@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://www.pairingwithpat.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.pairingwithpat.com/" rel="alternate" type="text/html" /><updated>2020-02-09T21:57:07-05:00</updated><id>https://www.pairingwithpat.com/feed.xml</id><title type="html">Pairing with Pat</title><subtitle>Videos and guides for beginner to intermediate programmers.</subtitle><entry><title type="html">AoC - 2015 - Day 1</title><link href="https://www.pairingwithpat.com/aoc/2020/02/08/aoc-2015-day-1.html" rel="alternate" type="text/html" title="AoC - 2015 - Day 1" /><published>2020-02-08T00:00:00-05:00</published><updated>2020-02-08T00:00:00-05:00</updated><id>https://www.pairingwithpat.com/aoc/2020/02/08/aoc-2015-day-1</id><content type="html" xml:base="https://www.pairingwithpat.com/aoc/2020/02/08/aoc-2015-day-1.html">&lt;h1 id=&quot;the-setup&quot;&gt;The Setup&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="https://www.pairingwithpat.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.pairingwithpat.com/" rel="alternate" type="text/html" /><updated>2020-02-09T22:55:11-05:00</updated><id>https://www.pairingwithpat.com/feed.xml</id><title type="html">Pairing with Pat</title><subtitle>Videos and guides for beginner to intermediate programmers.</subtitle><entry><title type="html">AoC - 2015 - Day 1</title><link href="https://www.pairingwithpat.com/aoc/2020/02/08/aoc-2015-day-1.html" rel="alternate" type="text/html" title="AoC - 2015 - Day 1" /><published>2020-02-08T00:00:00-05:00</published><updated>2020-02-08T00:00:00-05:00</updated><id>https://www.pairingwithpat.com/aoc/2020/02/08/aoc-2015-day-1</id><content type="html" xml:base="https://www.pairingwithpat.com/aoc/2020/02/08/aoc-2015-day-1.html">&lt;h1 id=&quot;the-setup&quot;&gt;The Setup&lt;/h1&gt;
 
 &lt;h3 id=&quot;problem-description&quot;&gt;Problem Description&lt;/h3&gt;
 &lt;p&gt;Santa is trying to deliver presents in a large apartment building, but he can’t find the right floor - the directions he got are a little confusing. 
@@ -680,7 +680,7 @@ summary: '&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$3&lt;/span&gt;&lt;span 
 
 &lt;h2 id=&quot;using-the-function&quot;&gt;Using the function&lt;/h2&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;new_post ~/NonBreakingSpace/blog/_posts/ &lt;span class=&quot;s2&quot;&gt;&quot;Make this Website&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Learn how this website was made.&quot;&lt;/span&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;new_post ~/PairingWithPat/blog/_posts/ &lt;span class=&quot;s2&quot;&gt;&quot;Make this Website&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Learn how this website was made.&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;writing-the-post&quot;&gt;Writing the Post&lt;/h1&gt;
@@ -731,4 +731,107 @@ git commit &lt;span class=&quot;nt&quot;&gt;-am&lt;/span&gt; &lt;span class=&quo
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push origin master
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;In in the Github Repo go to settings, scroll down to Github pages - select &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;master branch /docs folder&lt;/code&gt; as the source for your site&lt;/p&gt;</content><author><name></name></author><category term="walkthrough" /><summary type="html">What Makes a Website</summary></entry></feed>
+&lt;p&gt;In in the Github Repo go to settings, scroll down to Github pages - select &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;master branch /docs folder&lt;/code&gt; as the source for your site&lt;/p&gt;
+
+&lt;h1 id=&quot;topic-pages&quot;&gt;Topic Pages&lt;/h1&gt;
+
+&lt;p&gt;This theme is built out of the box to handle a standard blog where posts show up in chronological order, but I want to organize the posts
+on this site into various categories and then group the posts within these categories.&lt;/p&gt;
+
+&lt;p&gt;Each category will have an introductory page that includes a list of the posts within that category.&lt;/p&gt;
+
+&lt;p&gt;So to do this I am going to make a topic category that is similar to the current home page layout.
+I am also going to update the home page layout to list these category pages up top.&lt;/p&gt;
+
+&lt;p&gt;To create the category layouts we can copy the home page layout but add a filter to the posts to only lists posts
+from the desired category.&lt;/p&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://jekyllrb.com/docs/liquid/filters/&quot;&gt;Liquid Filters&lt;/a&gt; documentation on the Jekyll site.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+{% assign category_posts = site.posts | where: &quot;category&quot;, page.category  %}
+{%- for post in category_posts -%}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The entire layout looks like:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;category-page&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  {%- if page.title -%}
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;page-heading&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page.title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+  {%- endif -%}
+
+  {{ content }}
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-list-heading&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Posts&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-list&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    {% assign category_posts = site.posts | where: &quot;category&quot;, page.category  %}
+    {%- for post in category_posts -%}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;
+      {%- assign date_format = &quot;%b %-d, %Y&quot; -%}
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-meta&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ post.date | date: date_format }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;h3&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-link&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ post.url | relative_url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+          {{ post.title | escape }}
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/h3&amp;gt;&lt;/span&gt;
+      {%- if site.show_excerpts -%}
+      {{ post.excerpt }}
+      {%- endif -%}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    {%- endfor -%}
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We can save this new layout in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts/category_layout.html&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now for each category page we can add the category to the YAML frontmatter.&lt;/p&gt;
+
+&lt;p&gt;For example, for the Advent of Code category:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;post&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;AoC&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;2015&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Day&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;1'&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Working&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;through&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;problem&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Advent&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Code,&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;2015.'&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;category&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;aoc'&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We can make the main category page for Advent of Code in the index as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;advent-of-code.markdown&lt;/code&gt;
+And setup the YAML frontmatter as follows:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;category_page&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Advent&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;of&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Code'&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/advent-of-code/&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;category&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;aoc'&lt;/span&gt;
+&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now we can update the home layout to list the various top level pages. We can copy some code that already does this 
+in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_includes/header.html&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+{%- assign page_paths = site.pages | map: &quot;path&quot; -%}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-list-heading&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Categories&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-list&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+{%- for path in page_paths -%}
+  {%- assign my_page = site.pages | where: &quot;path&quot;, path | first -%}
+  {%- if my_page.title -%}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;h3&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post-link&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ my_page.url | relative_url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ my_page.title | escape }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/h3&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+  {%- endif -%}
+{%- endfor -%}
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is where the power of a static site generator and liquid templating really shines - because now we can have multiple category
+pages that share this common HTML structure and automatically include new posts in that category without us having to write the same
+HTML over and over again.&lt;/p&gt;</content><author><name></name></author><category term="walkthrough" /><summary type="html">What Makes a Website</summary></entry></feed>

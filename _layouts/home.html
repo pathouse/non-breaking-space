@@ -10,7 +10,7 @@ layout: default
   {{ content }}
 
   {%- assign page_paths = site.pages | map: "path" -%}
-  <h2 class="post-list-heading">Topics</h2>
+  <h2 class="post-list-heading">Categories</h2>
   <ul class="post-list">
   {%- for path in page_paths -%}
     {%- assign my_page = site.pages | where: "path", path | first -%}

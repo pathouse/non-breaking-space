@@ -235,7 +235,7 @@ summary: '</span><span class="nv">$3</span><span class="sh">'
 
 <h2 id="using-the-function">Using the function</h2>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>new_post ~/NonBreakingSpace/blog/_posts/ <span class="s2">"Make this Website"</span> <span class="s2">"Learn how this website was made."</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>new_post ~/PairingWithPat/blog/_posts/ <span class="s2">"Make this Website"</span> <span class="s2">"Learn how this website was made."</span>
 </code></pre></div></div>
 
 <h1 id="writing-the-post">Writing the Post</h1>
@@ -287,6 +287,110 @@ git commit <span class="nt">-am</span> <span class="s1">'Deploying with Github P
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin master
 </code></pre></div></div>
 <p>In in the Github Repo go to settings, scroll down to Github pages - select <code class="language-plaintext highlighter-rouge">master branch /docs folder</code> as the source for your site</p>
+
+<h1 id="topic-pages">Topic Pages</h1>
+
+<p>This theme is built out of the box to handle a standard blog where posts show up in chronological order, but I want to organize the posts
+on this site into various categories and then group the posts within these categories.</p>
+
+<p>Each category will have an introductory page that includes a list of the posts within that category.</p>
+
+<p>So to do this I am going to make a topic category that is similar to the current home page layout.
+I am also going to update the home page layout to list these category pages up top.</p>
+
+<p>To create the category layouts we can copy the home page layout but add a filter to the posts to only lists posts
+from the desired category.</p>
+
+<p>See <a href="https://jekyllrb.com/docs/liquid/filters/">Liquid Filters</a> documentation on the Jekyll site.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{% assign category_posts = site.posts | where: "category", page.category  %}
+{%- for post in category_posts -%}
+
+</code></pre></div></div>
+
+<p>The entire layout looks like:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"category-page"</span><span class="nt">&gt;</span>
+  {%- if page.title -%}
+  <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"page-heading"</span><span class="nt">&gt;</span>{{ page.title }}<span class="nt">&lt;/h1&gt;</span>
+  {%- endif -%}
+
+  {{ content }}
+
+  <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"post-list-heading"</span><span class="nt">&gt;</span>Posts<span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"post-list"</span><span class="nt">&gt;</span>
+    {% assign category_posts = site.posts | where: "category", page.category  %}
+    {%- for post in category_posts -%}
+    <span class="nt">&lt;li&gt;</span>
+      {%- assign date_format = "%b %-d, %Y" -%}
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"post-meta"</span><span class="nt">&gt;</span>{{ post.date | date: date_format }}<span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;h3&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-link"</span> <span class="na">href=</span><span class="s">"{{ post.url | relative_url }}"</span><span class="nt">&gt;</span>
+          {{ post.title | escape }}
+        <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/h3&gt;</span>
+      {%- if site.show_excerpts -%}
+      {{ post.excerpt }}
+      {%- endif -%}
+    <span class="nt">&lt;/li&gt;</span>
+    {%- endfor -%}
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</code></pre></div></div>
+
+<p>We can save this new layout in <code class="language-plaintext highlighter-rouge">_layouts/category_layout.html</code></p>
+
+<p>Now for each category page we can add the category to the YAML frontmatter.</p>
+
+<p>For example, for the Advent of Code category:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">AoC</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">2015</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">Day</span><span class="nv"> </span><span class="s">1'</span>
+<span class="na">summary</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Working</span><span class="nv"> </span><span class="s">through</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">first</span><span class="nv"> </span><span class="s">problem</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">Advent</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Code,</span><span class="nv"> </span><span class="s">2015.'</span>
+<span class="na">category</span><span class="pi">:</span> <span class="s1">'</span><span class="s">aoc'</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<p>We can make the main category page for Advent of Code in the index as <code class="language-plaintext highlighter-rouge">advent-of-code.markdown</code>
+And setup the YAML frontmatter as follows:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">category_page</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Advent</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Code'</span>
+<span class="na">permalink</span><span class="pi">:</span> <span class="s">/advent-of-code/</span>
+<span class="na">category</span><span class="pi">:</span> <span class="s1">'</span><span class="s">aoc'</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+
+<p>Now we can update the home layout to list the various top level pages. We can copy some code that already does this 
+in <code class="language-plaintext highlighter-rouge">_includes/header.html</code></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+{%- assign page_paths = site.pages | map: "path" -%}
+<span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"post-list-heading"</span><span class="nt">&gt;</span>Categories<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"post-list"</span><span class="nt">&gt;</span>
+{%- for path in page_paths -%}
+  {%- assign my_page = site.pages | where: "path", path | first -%}
+  {%- if my_page.title -%}
+    <span class="nt">&lt;li&gt;</span>
+      <span class="nt">&lt;h3&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"post-link"</span> <span class="na">href=</span><span class="s">"{{ my_page.url | relative_url }}"</span><span class="nt">&gt;</span>{{ my_page.title | escape }}<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/h3&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  {%- endif -%}
+{%- endfor -%}
+<span class="nt">&lt;/ul&gt;</span>
+
+</code></pre></div></div>
+
+<p>This is where the power of a static site generator and liquid templating really shines - because now we can have multiple category
+pages that share this common HTML structure and automatically include new posts in that category without us having to write the same
+HTML over and over again.</p>
+
 
   </div>
 
